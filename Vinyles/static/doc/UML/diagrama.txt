@@ -1,0 +1,200 @@
+@startuml
+'skinparam linetype ortho
+'skinparam nodesep 50
+'skinparam ranksep 50
+
+class Pais {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  --
+  +obtenerId()
+  +obtenerNombre()
+}
+
+class Departamento {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  -idPais: INT
+  --
+  +obtenerId()
+  +obtenerNombre()
+  +obtenerIdPais()
+}
+
+class Ciudad {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  -idDepartamento: INT
+  --
+  +obtenerId()
+  +obtenerNombre()
+  +obtenerIdDepartamento()
+}
+
+class Cliente {
+  -id: INT
+  --
+  -numeroDocumento: INT
+  -usuario: VARCHAR(100)
+  -contrasena: VARCHAR(100)
+  -nombre: VARCHAR(100)
+  -apellido: VARCHAR(100)
+  -email: VARCHAR(100)
+  -celular: INT
+  -direccion: VARCHAR(255)
+  --
+  +obtenerId()
+  +obtenerNumeroDocumento()
+  +obtenerUsuario()
+  +obtenerContrasena()
+  +obtenerNombre()
+  +obtenerApellido()
+  +obtenerEmail()
+  +obtenerCelular()
+  +obtenerDireccion()
+  +registrar()
+  +iniciarSesion()
+  +actualizarInformacion()
+}
+
+class MedioDePago {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  --
+  +obtenerId()
+  +obtenerNombre()
+}
+
+class Pedido {
+  -id: INT
+  --
+  -fecha: DATE
+  -total: DECIMAL(10, 2)
+  -direccionEnvio: VARCHAR(255)
+  -idCiudad: INT
+  -idCliente: INT
+  -idMedioDePago: INT
+  --
+  +obtenerId()
+  +obtenerFecha()
+  +obtenerTotal()
+  +obtenerDireccionEnvio()
+  +obtenerIdCiudad()
+  +obtenerIdCliente()
+  +obtenerIdMedioDePago()
+  +realizarPedido()
+  +consultarEstado()
+  +cancelarPedido()
+}
+
+class Artista {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  -informacion: VARCHAR(100)
+  --
+  +obtenerId()
+  +obtenerNombre()
+  +obtenerInformacion()
+}
+
+class Genero {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  --
+  +obtenerId()
+  +obtenerNombre()
+}
+
+class Cancion {
+  -id: INT
+  --
+  -nombre: VARCHAR(100)
+  -idArtista: INT
+  -idGenero: INT
+  --
+  +obtenerId()
+  +obtenerNombre()
+  +obtenerIdArtista()
+  +obtenerIdGenero()
+}
+
+class Producto {
+  -id: INT
+  --
+  -nombre: VARCHAR(2000)
+  -stock: INT
+  -discografica: VARCHAR(2000)
+  -lanzamiento: DATE
+  -idCancion: INT
+  --
+  +obtenerId()
+  +obtenerNombre()
+  +obtenerStock()
+  +obtenerDiscografica()
+  +obtenerLanzamiento()
+  +obtenerIdCancion()
+  +consultarDetalles()
+  +actualizarStock()
+}
+
+class PedidoProducto {
+  -id: INT
+  --
+  -cantidad: INT
+  -valorUnitario: DECIMAL(10, 2)
+  -idPedido: INT
+  -idProducto: INT
+  --
+  +obtenerId()
+  +obtenerCantidad()
+  +obtenerValorUnitario()
+  +obtenerIdPedido()
+  +obtenerIdProducto()
+}
+
+class Soporte {
+  -id: INT
+  --
+  -descripcion: VARCHAR(2000)
+  -estado: VARCHAR(20)
+  -idCliente: INT
+  --
+  +obtenerId()
+  +obtenerDescripcion()
+  +obtenerEstado()
+  +obtenerIdCliente()
+  +crearTicket()
+  +actualizarEstado()
+}
+
+class ClienteMedioDePago {
+  -idCliente: INT
+  -idMedioDePago: INT
+  --
+  +obtenerIdCliente()
+  +obtenerIdMedioDePago()
+}
+
+Pais "1" -- "0..*" Departamento : tiene
+Departamento "1" -- "0..*" Ciudad : tiene
+Ciudad "1" -- "0..*" Pedido : tiene
+Cliente "1" -- "0..*" Pedido : realiza
+MedioDePago "1" -- "0..*" Pedido : utilizado en
+Cliente "0..*" -- "*" MedioDePago : usa
+Pedido "1" -- "0..*" PedidoProducto : contiene
+Producto "1" -- "0..*" PedidoProducto : está en
+Artista "1" -- "0..*" Cancion : interpreta
+Genero "1" -- "0..*" Cancion : pertenece
+Cancion "1" -- "0..*" Producto : contiene
+Cliente "1" -- "0..*" Soporte : genera
+' Conexiones de clienteMedioDePago
+Cliente "0..*" -- "*" ClienteMedioDePago : usa
+MedioDePago "0..*" -- "*" ClienteMedioDePago : asociado con
+
+@enduml

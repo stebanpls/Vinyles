@@ -1,0 +1,130 @@
+/* General styles for the entire page */
+
+html {
+  height: 100%;
+}
+
+header {
+  background-color: #121212; /* Dark background for header */
+  padding: 1rem 0;
+  border-bottom: 1px solid #333; /* Subtle border */
+}
+
+body {
+  display: flex; /* 1. Make the body a flex container */
+  flex-direction: column; /* 2. Stack children vertically (header, main, footer) */
+  min-height: 100vh; /* 3. Ensure body is at least the full viewport height */
+  margin: 0; /* Optional: Remove default body margin */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  /*
+  background-color: #f8f8f8;
+  color: #333;
+  */
+}
+
+.navbar {
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #f8f9fa; /* Light text for brand */
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  color: #f8f9fa; /* Light text for links */
+  margin-right: 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #adb5bd; /* Slightly darker on hover */
+}
+
+.btn-primary {
+  background-color: #121212;
+  border-color: #6c757d;
+}
+
+.btn-primary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+.icono {
+  fill: #f8f9fa;
+}
+
+main {
+  padding: 2rem;
+  background-color: #000000; /* Deeper black */
+  color: #FFFFFF; /* Pure white text */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #121212; /* Dark background for footer */
+  color: #f8f9fa; /* Light text for footer */
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #333; /* Subtle border */
+  flex-shrink: 0;
+}
+
+/* Footer Styling - MODO OSCURO */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px 15px 10px 15px; /* Más padding vertical */
+  background-color: #121212; /* Fondo muy oscuro, como el header */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 180px; /* Un poco más de ancho mínimo */
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.footer-column h4 {
+  margin-top: 0;
+  margin-bottom: 15px; /* Más espacio bajo el título */
+  font-size: 1.1em;
+  color: #f8f9fa; /* Texto claro */
+  border-bottom: 1px solid #444; /* Línea separadora sutil */
+  padding-bottom: 8px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px; /* Más espacio entre ítems */
+}
+
+.footer-column ul li a {
+  color: #adb5bd; /* Gris claro para enlaces */
+  font-size: 0.9em;
+}
+.footer-column ul li a:hover {
+  color: #ffffff; /* Blanco en hover */
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  background-color: #0a0a0a; /* Fondo aún más oscuro para la base */
+  font-size: 0.9em;
+  color: #adb5bd; /* Texto gris claro */
+  border-top: 1px solid #333; /* Borde oscuro */
+}

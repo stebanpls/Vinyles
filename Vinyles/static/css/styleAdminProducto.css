@@ -1,0 +1,103 @@
+.section{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 1000px;
+    position: relative;
+}
+
+.contenedor{
+    background-color: rgb(222, 219, 219);
+    width: 250px;
+    height: 500px;
+    position: absolute;
+    top: 70px;
+    left:30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    z-index: 999;
+}
+
+.contenedor h1{
+    font-size: 15px;
+    color: black;
+    position: absolute;
+    top: 10px;
+    font-weight: bold;
+}
+
+.menu{
+    width: 70px;
+    height: 500px;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 999;
+}
+
+.menu:hover{
+    color: lightskyblue;
+}
+
+.button{
+    background-color: rgb(66, 68, 68);
+    color: black;
+    width: 200px;
+    padding: 10px 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.button:hover{
+    background-color: rgb(16, 75, 79);
+}
+
+.albumes {
+    flex: 1; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 50px;
+    padding: 100px
+}
+
+.link{
+    text-decoration: none;
+    color: #ffffff00;         
+}
+
+.link:visited,
+.link:hover,
+.link:focus {
+color: inherit;
+text-decoration: none;
+}
+
+.album-card {
+    background-color: #3838388b; 
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    height: 300px;
+}
+
+.album-card:hover{
+    background-color: rgb(68, 69, 69);
+}
+
+.album-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.album-card p {
+    margin: 0.3rem 0;
+}

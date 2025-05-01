@@ -1,0 +1,60 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block extra_css %} 
+  <link rel="stylesheet" href="{% static 'css/styleGeneros.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Géneros {% endblock titulo %}
+
+{% block contenido %}
+<section>
+  <div class="bloque">
+    <img src="{%static 'images/thriller.jpg' %}" alt="Snow" >
+    <button class="button">POP</button>
+  </div>
+  
+
+  <div class="bloque">
+    <img src="{%static 'images/suavemente.jpg' %}" alt="Snow" >
+    <button class="button">MERENGUE</button>
+  </div>
+  
+  <div class="bloque">
+    <img src="{%static 'images/jazz.jpg' %}" alt="Snow" >
+    <button class="button">JAZZ</button>
+  </div>
+
+  <div class="bloque">
+    <img src="{%static 'images/master.jpg' %}" alt="Snow" >
+    <button class="button">ROCK</button>
+  </div>
+
+  <div class="bloque">
+    <img src="{%static 'images/regueton.jpg' %}" alt="Snow" >
+    <button class="button">REGUETÓN</button>
+  </div>
+
+  <div class="bloque">
+    <img src="{%static 'images/kpop.jpg' %}" alt="Snow" >
+    <button class="button">KPOP</button>
+  </div>
+
+
+  <div class="bloque">
+    <img src="{%static 'images/rap.jpg' %}" alt="Snow" >
+    <button class="button">RAP</button>
+  </div>
+
+
+  <div class="bloque">
+    <img src="{%static 'images/descarga.jpg' %}" alt="Snow" >
+    <button class="button">CLÁSICA</button>
+  </div>
+
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

@@ -1,0 +1,177 @@
+{% extends "plantillaVendedor.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleCrear.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<div class="textos">
+    <h1 class="bienvenida">Gestion de productos</h1>
+    <p class="bien">
+        Edita la información de tus productos. Actualiza detalles, precios y más, directamente desde esta sección.
+    </p>
+</div>
+
+<section>
+    <div class="guardar-global">
+        <div class = "Botonsito"><button onclick="guardarCambios()" id="guardarBtn" class="button-guardar">Guardar</button></div>
+        <button onclick="activarEdicion()" class="button-editar">Editar información</button>
+    </div>
+
+    <div class = "cuadro">
+        <div class="contenedor" onclick="document.getElementById('inputImg').click()">
+            <img id="preview" src="{% static 'images/añadirImagen.jpg' %}" alt="Imagen" />
+        </div>
+        
+        <div class = "info">
+            <div class= "titulo">
+                <p class="editable" contenteditable="false">
+                    Nombre
+                </p>
+            </div>
+
+            <div class = "precio">
+                <p>
+                    Precio:
+                </p>
+            </div>
+
+            <div class = "valor">
+                <p class="editable" contenteditable="false">
+                    $0
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="detalles">
+        <div class="album">
+            <details>
+                <summary class="acor">Información del álbum</summary>
+                <p>
+                    <span class="etiqueta">Género:</span><span class="dato editable" contenteditable="false"></span>
+                </p>
+                <p>
+                    <span class="etiqueta">Lanzamiento:</span><span class="dato editable" contenteditable="false"></span>
+                </p>
+                <p>
+                    <span class="etiqueta">Sello discográfico:</span><span class="dato editable" contenteditable="false"></span>
+                </p>
+                <p>
+                    <span class="etiqueta">Productor(es):</span><span class="dato editable" contenteditable="false"></span>
+                </p>
+            </details>
+        </div>
+    
+        <div class="artista">
+            <details>
+                <summary class="acor">
+                    Información del artista
+                </summary>
+                <p class="editable" contenteditable="false">
+                    Agregar información
+                </p>
+            </details>
+        </div>
+
+        <div class="canciones">
+            <details>
+                <summary class="acor">
+                    Listado de canciones 
+                </summary>
+                <div class="listap">
+                    <ul class="lista-canciones editable" contenteditable="false">
+                        <li><i class="fa-solid fa-music"></i>...</li>
+                        <li><i class="fa-solid fa-music"></i>... </li>
+                        <li><i class="fa-solid fa-music"></i>... </li>
+                        
+                    </ul>
+                </div>
+            </details>
+        </div>
+        
+    </div>
+    
+        <div class = "verificar">
+            <button class="button" onclick="marcarNoDisponible()">Verificar</button>
+            <div id="mensajeNoDisponible" class = "NoDis"></div>
+        </div>
+        <input type="file" id="inputImg" accept="image/*">
+</section>
+
+<script>
+    function activarEdicion() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = true;
+            campo.style.border = "1px dashed #ccc";
+            campo.style.border.color = "gray";
+        });
+    }
+    
+    function guardarCambios() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = false;
+            campo.style.border = "none";
+        });
+    
+        // Mensaje de confirmación
+        const mensaje = document.createElement("p");
+        mensaje.textContent = "✅";
+        mensaje.classList.add("mensaje-guardado");
+        mensaje.style.color = "green";
+        mensaje.style.fontWeight = "bold";
+    
+        const contenedor = document.querySelector(".guardar-global");
+        contenedor.appendChild(mensaje);
+    
+        setTimeout(() => mensaje.remove(), 3000);
+    }
+    
+    function marcarNoDisponible() {
+        const contenedor = document.getElementById("mensajeNoDisponible");
+    
+        contenedor.textContent = "Verificación en curso ✅";
+        contenedor.style.color = "green";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+
+    const input = document.getElementById('inputImg');
+    const img = document.getElementById('preview');
+    const placeholder = document.getElementById('placeholder-text');
+
+// Cuando el usuario selecciona un archivo (imagen)
+input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (file) {
+        img.src = URL.createObjectURL(file);
+
+        // Ajustar el tamaño de la imagen si es demasiado grande
+        img.onload = function() {
+            // Aquí verificamos si la imagen es más ancha que el contenedor
+            if (img.naturalWidth > 500) {
+                img.style.width = '100%';  // Asegura que ocupe el 100% del contenedor
+                img.style.height = 'auto'; // Mantiene la proporción original
+            } else {
+                img.style.width = 'auto';  // Mantiene el tamaño original si es menor
+                img.style.height = 'auto';
+            }
+        };
+
+        img.style.display = 'block'; // Mostrar la imagen
+        placeholder.style.display = 'none'; // Ocultar el texto
+    }
+});
+</script>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

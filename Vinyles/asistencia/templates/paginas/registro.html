@@ -1,0 +1,73 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/styleRegistro.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Registro {% endblock titulo %}
+
+{% block contenido %}
+  <div class="login-container">
+    <div class="login-form">
+        <div class="logo-container">
+            <img src="{% static 'images/vinilo.ico' %}" alt="Logo">
+        </div>
+        <h2>Registro</h2>
+        <form id="loginForm" action="{% url 'registro' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" aria-label="Nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" aria-label="usuario" placeholder="Ingresa tu usuario" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                aria-describedby="emailHelpId"
+                placeholder="abc@mail.com"
+              />
+            <div class="form-group">
+              <label for="celular">Celular</label>
+              <input type="tel" id="celular" name="celular" aria-label="Celular" placeholder="Ingresa tu celular" required>
+          </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" aria-label="Contraseña" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirmar Contraseña</label>
+                <input type="password" id="confirm_password" name="confirm_password" aria-label="Confirmar Contraseña" placeholder="Confirma tu contraseña" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    <a href="{% url 'perfil' %}">Registrarse</a>
+                </button>
+            </div>
+            <div class="form-group">
+                <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></p>
+            </div>
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            {{ field }}: {{ error }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </form>
+    </div>
+  </div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

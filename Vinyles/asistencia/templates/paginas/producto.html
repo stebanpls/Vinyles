@@ -1,0 +1,33 @@
+{% extends "plantillaVendedor.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleProducto.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Crear {% endblock titulo %}
+
+{% block contenido %}
+<div class="container-albumes">
+  <main class="main-albumes">
+    <div class="album-card">
+      <a href="{% url 'albumBadVendedor' %}">
+      <img src="{% static 'images/bad.jpg' %}" alt="Álbum Bad - Michael Jackson" />
+      <p><strong>Álbum:</strong> Bad</p>
+      <p><strong>Artista:</strong> Michael Jackson</p>
+      </a>
+    </div>
+
+    <div class="album-card">
+      <a href="{% url 'crear' %}">
+        <img src="{% static 'images/plus.jpg' %}" alt="Añadir Album" class="plus-icon"/>
+        <p>Añadir Album</p>
+      </a>
+    </div>
+  </main>
+</div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

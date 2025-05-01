@@ -1,0 +1,76 @@
+{% extends 'plantillaComprador.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleProgresoEnvio.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Progreso Envío {% endblock titulo %}
+
+{% block contenido %}
+<div class="thank-you-container">
+    <h1>¡Gracias por tu compra!</h1>
+    <p>
+        Estamos preparando tu pedido. Te notificaremos cada paso del proceso.
+    </p>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;" id="envio-progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            0%
+        </div>
+    </div>
+
+    <div class="estado-envio mt-4">
+    <span class="estado-icon">📦</span>
+    <span id="estado-envio">Preparando envío...</span>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const progressBar = document.getElementById("envio-progress");
+    const estadoEnvio = document.getElementById("estado-envio");
+    const icono = document.querySelector(".estado-icon");
+
+    // Definición de estados con sus respectivos iconos
+    const estados = [
+    { texto: "Preparando envío...", icono: "📦" },
+    { texto: "En camino...", icono: "🚚" },
+    { texto: "Cerca de tu destino...", icono: "📍" },
+    { texto: "¡Entregado!", icono: "✅" }
+    ];
+
+    let progreso = 0;
+    let estadoIndex = 0;
+
+    const interval = setInterval(() => {
+    progreso += 10;
+    if (progreso > 100) progreso = 100;
+
+    progressBar.style.width = progreso + "%";
+    progressBar.setAttribute("aria-valuenow", progreso);
+    progressBar.textContent = progreso + "%";
+
+      // Actualiza el estado según el progreso
+    if (progreso < 25) {
+        estadoIndex = 0;
+    } else if (progreso < 50) {
+        estadoIndex = 1;
+    } else if (progreso < 90) {
+        estadoIndex = 2;
+    } else {
+        estadoIndex = 3;
+    }
+
+    estadoEnvio.textContent = estados[estadoIndex].texto;
+    icono.textContent = estados[estadoIndex].icono;
+
+    if (progreso === 100) clearInterval(interval);
+    }, 1000);
+    });
+</script>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

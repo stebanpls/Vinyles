@@ -1,0 +1,139 @@
+.titulo-perfil {
+    font-size: 2rem;
+    border-bottom: 2px solid #171717;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.perfil-card {
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #111111d6;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    color: white;
+    gap: 2rem;
+}
+
+.perfil-avatar {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.perfil-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #411736;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.perfil-avatar h3 {
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.perfil-info {
+    flex: 2 1 500px;
+    line-height: 1.8;
+}
+
+.perfil-info p {
+    margin: 0.5rem 0;
+}
+
+.perfil-historial {
+    margin-top: 2rem;
+}
+
+.compra {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    gap: 1rem;
+}
+
+.compra img {
+    width: 60px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.album {
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+}
+
+.artista {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.perfil-container {
+    background-color: #000000;
+    max-width: 70%;
+    position: relative;
+}
+
+.bloq {
+    position: absolute;
+    bottom: 50%;
+    margin-left: 70%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.bloq-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.mensaje-flotante {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(27, 27, 27, 0.85);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mensaje-flotante.visible {
+    opacity: 1;
+}
+
+.bloquear {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background-color: #b91c1c; /* Rojo por defecto */
+    transition: background-color 0.3s ease;
+}
+
+.bloquear:hover {
+    background-color: #7f1d1d; /* Rojo más oscuro */
+}
+
+.bloquear.desbloquear {
+    background-color: #15803d; /* Verde cuando se desbloquea */
+}
+
+.bloquear.desbloquear:hover {
+    background-color: #065f46; /* Verde más oscuro */
+}

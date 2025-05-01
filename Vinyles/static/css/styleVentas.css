@@ -1,0 +1,53 @@
+.textos {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: aliceblue;
+}
+
+table {
+  position: relative;
+  margin-left: 10%;
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #1e293b;
+  color: white;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #21314b;
+}
+
+tr:first-child th {
+  border-top: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td {
+  color: black;
+}
+
+a {
+  color: #0f766e; 
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0d9488;
+}

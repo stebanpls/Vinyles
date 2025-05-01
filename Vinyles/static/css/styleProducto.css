@@ -1,0 +1,66 @@
+.container-albumes {
+  display: flex;
+  min-height: 50vh; 
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.aside-clasificacion {
+  width: 250px;
+  background-color: #111; 
+  padding: 1rem;
+  margin-right: 1rem; 
+  border-radius: 4px;
+}
+
+.aside-clasificacion h2 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.aside-clasificacion ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.aside-clasificacion ul li {
+  margin: 0.3rem 0;
+}
+
+.aside-clasificacion ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.aside-clasificacion ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.main-albumes {
+  flex: 1; 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.album-card {
+  background-color: #222; 
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+}
+
+.album-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.album-card p {
+  margin: 0.3rem 0;
+}

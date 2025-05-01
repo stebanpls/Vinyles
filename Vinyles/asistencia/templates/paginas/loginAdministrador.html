@@ -1,0 +1,47 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/styleLoginAdministrador.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Inicio {% endblock titulo %}
+
+{% block contenido %}
+  <div class="login-container">
+    <div class="login-form">
+        <div class="logo-container">
+            <img src="{% static 'images/vinilo.ico' %}" alt="Logo">
+        </div>
+        <h2>Iniciar Sesión como Administrador</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    aria-describedby="emailHelpId"
+                    placeholder="abc@mail.com"
+                />
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" aria-label="Contraseña" required>
+            </div>
+            <p><a href="{% url 'restablecerContrasenaAdmin' %}">¿Olvidaste tu Contraseña?</a></p>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    <a href="{% url 'administrador' %}">Iniciar Sesión</a>
+                </button>
+            </div>
+        </form>
+    </div>
+  </div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

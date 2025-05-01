@@ -1,0 +1,72 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/styleSoporte.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Sopote {% endblock titulo %}
+
+{% block contenido %}
+  <div class="login-container">
+    <div class="login-form">
+        <div class="logo-container">
+            <img src="{% static 'images/vinilo.ico' %}" alt="Logo">
+        </div>
+        <h2>¿Problemas? ¡Contactanos!</h2>
+        <form id="loginForm" action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="usuario" class="form-label">Usuario</label>
+              <input type="text" id="usuario" name="usuario" class="form-control" aria-label="Usuario" required/>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                aria-describedby="emailHelpId"
+                placeholder="abc@mail.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
+            </div>
+            
+            <script>
+              document.getElementById('loginForm').addEventListener('submit', function(event) {
+                var email = document.getElementById('email').value;
+                if (!validateEmail(email)) {
+                  alert('Por favor, introduce un email válido.');
+                  event.preventDefault(); // Evita que el formulario se envíe
+                }
+              });
+            
+              function validateEmail(email) {
+                var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+              }
+            </script>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            {{ field }}: {{ error }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </form>
+    </div>
+  </div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

@@ -1,0 +1,147 @@
+/* ============================
+  ESTILOS ESPECÍFICOS DEL CARRITO
+   ============================ */
+
+.btn-remove-item {
+  color: #ccc;
+}
+
+.carrito-container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.carrito-container h2 {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-title {
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.cart-item-artist {
+  margin: 3px 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.cart-item-price {
+  margin: 0;
+  color: #fff;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.cart-item-remove:hover {
+  color: #f00;
+}
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 1.1rem;
+  /*
+  border-top: 1px solid #444;
+  */
+  padding-top: 10px;
+}
+
+#checkout-button {
+  display: block;
+  margin: 20px auto 0 auto;
+  background-color: #0d6efd;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#checkout-button:hover {
+  background-color: #0b5ed7;
+}
+
+/* ============================
+  ESTILOS DEL MODAL DE PAGO (opcional)
+  ============================ */
+
+.pago-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.pago-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  color: #000;
+}
+
+.close-pago-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-pago-modal:hover,
+.close-pago-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para la sección de métodos de pago */
+.payment-section {
+  display: none;
+  margin-top: 1rem;
+}
+.payment-section.active {
+  display: block;
+}

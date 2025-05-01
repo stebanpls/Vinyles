@@ -1,0 +1,75 @@
+.section {
+    background-color: #000000;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.textos {
+    width: 100%;
+    margin-bottom: 1rem;
+    color :aliceblue;
+}
+
+.nota {
+    width: 240px;
+    height: 240px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+    position: relative;
+    padding: 1.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #1e293b;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nota:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 18px rgba(0,0,0,0.4);
+}
+
+.nota::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: crimson;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    z-index: 2;
+    margin: 1px;
+}
+
+.nota h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.nota .value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.nota .desc {
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+/* Colores pastel corregidos */
+.rosita { background-color: #ffd6f3; }
+.azul   { background-color: #e1f5fd; }
+.lila   { background-color: #f6ddfd; }
+.piel   { background-color: #fcffd8; }

@@ -1,0 +1,25 @@
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    background-color: #1e293b;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #475569;
+}
+
+.datos-usuario h2, .datos-usuario p {
+    margin: 0.3rem 0;
+}

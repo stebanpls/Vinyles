@@ -1,0 +1,161 @@
+{% extends "plantillaComprador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleAlbumesCom.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %}
+<div class="container-albumes">
+  <!-- Barra lateral con categorías -->
+  <aside class="aside-clasificacion">
+    <h2>Clasificación</h2>
+      <ul>
+          <li><a href="#" data-genre="todos">Todos</a></li>
+          <li><a href="#" data-genre="rock">Rock</a></li>
+          <li><a href="#" data-genre="jazz">Jazz</a></li>
+          <li><a href="#" data-genre="merengue">Merengue</a></li>
+          <li><a href="#" data-genre="reggaeton">Reggaetón</a></li>
+          <li><a href="#" data-genre="pop">Pop</a></li>
+          <li><a href="#" data-genre="clasica">Clásica</a></li>
+          <li><a href="#" data-genre="reggae">Reggae</a></li>
+          <li><a href="#" data-genre="blues">Blues</a></li>
+          <li><a href="#" data-genre="salsa">Salsa</a></li>
+          <li><a href="#" data-genre="electro">Electro</a></li>
+          <li><a href="#" data-genre="rap">Rap</a></li>
+          <li><a href="#" data-genre="vallenato">Vallenato</a></li>
+          <li><a href="#" data-genre="rockandroll">Rock and Roll</a></li>
+      </ul>
+  </aside>
+
+  <!-- Sección principal con los álbumes -->
+  <main class="main-albumes">
+    <div class="album-card" data-genre="rock">
+      <a href="{% url 'vinilo' %}?album=bad" class="album-link">
+          <img src="{% static 'images/bad.jpg' %}" alt="Álbum Bad - Michael Jackson"/>
+      </a>
+      <p>
+        <strong>Álbum: </strong>Bad
+      </p>
+      <p>
+        <strong>Artista: </strong>Michael Jackson
+      </p>
+    </div>
+
+    <div class="album-card" data-genre="rock">
+      <a href="{% url 'vinilo' %}?album=master" class="album-link">
+          <img src="{% static 'images/master.jpg' %}" alt="Álbum Master of Puppets - Metallica" />
+      </a>
+      <p>
+        <strong>Álbum: </strong>Master of Puppets
+      </p>
+      <p>
+        <strong>Artista: </strong>Metallica
+      </p>
+    </div>
+
+    <div class="album-card" data-genre="salsa">
+        <a href="{% url 'vinilo' %}?album=joe" class="album-link">
+            <img src="{% static 'images/joe.jpg' %}" alt="Álbum Los Mejores Éxitos - Joe Arroyo" />
+        </a>
+        <p>
+          <strong>Álbum: </strong>Los Mejores Éxitos
+        </p>
+        <p>
+          <strong>Artista: </strong>Joe Arroyo
+        </p>
+    </div>
+
+    <div class="album-card" data-genre="pop">
+        <a href="{% url 'vinilo' %}?album=thriller" class="album-link">
+            <img src="{% static 'images/thriller.jpg' %}" alt="Álbum Thriller - Michael Jackson" />
+        </a>
+        <p>
+          <strong>Álbum: </strong>Thriller
+        </p>
+        <p>
+          <strong>Artista: </strong>Michael Jackson
+        </p>
+    </div>
+
+    <div class="album-card" data-genre="pop">
+      <a href="{% url 'vinilo' %}?album=lonely" class="album-link">
+          <img src="{% static 'images/lonely.jpg' %}" alt="Álbum Pepper's Lonely Hearts Club Band - The Beatles" />
+      </a>
+      <p>
+        <strong>Álbum: </strong> Sgts. Pepper's Lonely Hearts Club Band
+      </p>
+      <p>
+        <strong>Artista: </strong>The Beatles
+      </p>
+    </div>
+
+    <div class="album-card" data-genre="Rock">
+      <a href="{% url 'vinilo' %}?album=destruction" class="album-link">
+          <img src="{% static 'images/destruction.jpg' %}" alt="Álbum Appetite for Destruction - Guns N' Roses" />
+      </a>
+      <p><strong>Álbum: </strong>Appetite for Destruction</p>
+      <p>
+        <strong>Artista: </strong>Guns N' Roses
+      </p>
+    </div>
+
+    <div class="album-card" data-genre="Rap">
+      <a href="{% url 'vinilo' %}?album=music" class="album-link">
+          <img src="{% static 'images/music.jpg' %}" alt="Álbum MUSIC - Playboi Carti" />
+      </a>
+      <p>
+        <strong>Álbum: </strong>MUSIC
+      </p>
+      <p>
+        <strong>Artista: </strong>Playboi Carti
+      </p>
+    </div>
+  </main>
+</div>
+
+<!-- Script de filtrado por género -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionamos todos los enlaces del aside
+    const genreLinks = document.querySelectorAll('.aside-clasificacion ul li a');
+    // Seleccionamos todas las tarjetas de álbum
+    const albumCards = document.querySelectorAll('.album-card');
+  
+    genreLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Obtenemos el género seleccionado y lo forzamos en minúsculas
+        const selectedGenre = link.getAttribute('data-genre').trim().toLowerCase();
+        console.log("Género seleccionado:", selectedGenre);
+  
+        albumCards.forEach(card => {
+          // Obtenemos el género de la tarjeta y lo comparamos en minúsculas
+          const cardGenre = card.getAttribute('data-genre').trim().toLowerCase();
+          console.log("Tarjeta con género:", cardGenre);
+          
+          if (selectedGenre === 'todos') {
+            // Restauramos el display a su valor original (vacío)
+            card.style.display = (cardGenre === selectedGenre) ? "" : "none";
+          } 
+          /*
+          else {
+            // Si el género coincide, mostramos la tarjeta; si no, la ocultamos
+            if (cardGenre === selectedGenre) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          }*/
+        });
+      });
+    });
+  });
+</script>
+{% endblock %}
+
+{% block pie %}
+  
+{% endblock pie %}

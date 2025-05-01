@@ -1,0 +1,66 @@
+{% extends "plantillaAdministrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleVentas.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Ventas {% endblock titulo %}
+
+{% block contenido %} 
+
+<section class="section">
+    <div class="textos">
+        <h4 class="bienvenida">Ventas Hoy</h4>
+        <p class="bien">Estas son las ventas que se han registrado el día de hoy.</p>
+    </div>
+    <table >
+        <thead>
+            <tr>
+            <th>Cliente</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><a href="{% url 'lauraG'%}" >Laura Gómez</a></td>
+            <td><a href="{% url 'theBeatles' %}"> The Beatles - Abbey Road</a></td>
+            <td>$250.000</td>
+            <td>09/04/2025</td>
+            </tr>
+            <tr>
+            <td><a href="{% url 'carlosR'%}">Carlos Ruiz</a></td>
+            <td><a href="{% url 'nirvana' %}">Nirvana - In Utero</a></td>
+            <td>$210.000</td>
+            <td>09/04/2025</td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'camilaQ'%}">Camila Quintero</a></td>
+                <td><a href="{% url 'bts'%}">BTS - Be</a></td>
+                <td>$250.000</td>
+                <td>09/04/2025</td>
+                </tr>
+                <tr>
+                    <td><a href="{% url 'jhonM'%}">Jhon Martínez</a></td>
+                    <td><a href="{% url 'mjBad'%}">Michael Jackson - Bad</a></td>
+                    <td>$270.000</td>
+                    <td>09/04/2025</td>
+                    </tr>
+                    <tr>
+                        <td><a href="{% url 'alexR'%}">Alex Rojas</a></td>
+                        <td><a href="{% url 'eminemShow'%}">Eminem - The Eminem Show</a></td>
+                        <td>$250.000</td>
+                        <td>09/04/2025</td>
+                        </tr>
+            <!-- Más filas -->
+        </tbody>
+        </table>
+
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

@@ -1,0 +1,308 @@
+{% extends 'plantillaComprador.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="#">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Checkout {% endblock titulo %}
+
+{% block contenido %}
+<div class="container my-4">
+  <!-- ENCABEZADO DE CHECKOUT -->
+  <h1>Contacto</h1>
+
+  <form>
+    <div class="row g-3">
+      <!-- CORREO ELECTRÓNICO -->
+      <div class="col-12 col-md-6">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+      </div>
+
+      <!-- CHECKBOX DE NOVEDADES -->
+      <div class="col-12">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="novedades">
+          <label class="form-check-label" for="novedades">
+            Enviarme novedades y ofertas por correo electrónico
+          </label>
+        </div>
+      </div>
+
+    <hr class="w-100">
+
+      <!-- SECCIÓN DE ENTREGA -->
+      <h2 class="mt-4">Entrega</h2>
+      <div class="col-12 col-md-4">
+        <label for="pais" class="form-label">País</label>
+        <select class="form-select" id="pais">
+          <option>Colombia</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" placeholder="Bogotá">
+      </div>
+
+      <!-- Datos receptor -->
+      <div class="col-12 col-md-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" placeholder="Tus apellidos">
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="cedula" class="form-label">Cédula / NIT</label>
+        <input type="text" class="form-control" id="cedula" placeholder="12345678">
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" placeholder="3001234567">
+      </div>
+
+<!-- Dirección -->
+<div class="col-12 col-md-6"">
+  <label for="direccion" class="form-label">Dirección</label>
+  <input type="text" class="form-control" id="direccion" placeholder="Calle 1 # 2 - 3">
+</div>
+<div class="col-12 col-md-6">
+  <label for="extra" class="form-label">Casa, apto, etc. (opcional)</label>
+  <input type="text" class="form-control" id="extra" placeholder="Apartamento 101">
+</div>
+<div class="col-12 col-md-3">
+  <label for="postal" class="form-label">Código postal</label>
+  <input type="text" class="form-control" id="postal" placeholder="000000">
+</div>
+<div class="col-12 col-md-3">
+      <!-- puedes dejar otra cosa aquí o dejar vacío para balancear -->
+    </div>
+  </div>
+  
+
+  <div class="col-12">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="guardarInfo">
+      <label class="form-check-label" for="guardarInfo">
+        Guardar mi información y consultar más rápido
+      </label>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <hr>
+  </div>
+
+      <!-- RESUMEN DE COMPRA -->
+      <div class="col-12">
+        <h2>Resumen de Compra</h2>
+        {% if cart_items %}
+        <div class="list-group">
+          {% for item in cart_items %}
+          <div class="list-group-item d-flex align-items-center">
+            <img src="{% static item.image %}" alt="{{ item.title }}" class="me-3" width="50">
+            <div>
+              <p class="mb-0"><strong>{{ item.title }}</strong></p>
+              <p class="mb-0">{{ item.artist }}</p>
+            </div>
+            <span class="ms-auto">COP ${{ item.price }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+          <p>No hay productos en el carrito.</p>
+        {% endif %}
+      </div>
+
+      <div class="col-12">
+        <hr>
+      </div>
+
+
+
+      <!-- MÉTODOS DE ENVÍO -->
+      <div class="col-12 col-md-6">
+        <h2>Métodos de envío</h2>
+        <select id="ciudad-envio" class="form-select">
+          <option value="7500">Bogotá — COP $7.500</option>
+          <option value="9000">Medellín — COP $9.000</option>
+          <option value="8500">Cali — COP $8.500</option>
+          <option value="9500">Barranquilla — COP $9.500</option>
+          <option value="10000">Cartagena — COP $10.000</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-3">
+        <p id="envio-cost">Costo envío:<br><strong>COP $7.500</strong></p>
+      </div>
+      <div class="col-6 col-md-3">
+        <p id="total-final"><strong>Total:</strong><br>COP ${{ total|add:"7500" }}</p>
+      </div>
+
+      <div class="col-12">
+        <hr>
+      </div>
+
+      <!-- MÉTODOS DE PAGO -->
+      <div class="col-12">
+        <h2>Pago</h2>
+        <p>Todas las transacciones son seguras y encriptadas.</p>
+      </div>
+      <!-- Radios -->
+      <div class="col-12 col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="payment-method" id="creditCard" value="credit" checked>
+          <label class="form-check-label" for="creditCard">Tarjeta de Crédito</label>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="payment-method" id="nequi" value="nequi">
+          <label class="form-check-label" for="nequi">Nequi</label>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="payment-method" id="others" value="others">
+          <label class="form-check-label" for="others">Otros (Débito)</label>
+        </div>
+      </div>
+
+      <!-- Secciones según método seleccionado -->
+      <div id="credit-section" class="col-12 col-md-4 payment-section">
+        <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+        <input type="text" id="cardNumber" class="form-control mb-2" placeholder="XXXX-XXXX-XXXX-XXXX">
+        <label for="cardExpiry" class="form-label">Fecha de Expiración</label>
+        <input type="text" id="cardExpiry" class="form-control mb-2" placeholder="MM/AA">
+        <label for="cardCVC" class="form-label">CVC</label>
+        <input type="text" id="cardCVC" class="form-control" placeholder="CVC">
+      </div>
+      <div id="nequi-section" class="col-12 col-md-4 payment-section" style="display:none;">
+        <label for="nequiNumber" class="form-label">Número de Celular Nequi</label>
+        <input type="text" id="nequiNumber" class="form-control mb-2" placeholder="Ej: 3123456789">
+        <label for="nequiCode" class="form-label">Clave Dinámica</label>
+        <input type="text" id="nequiCode" class="form-control" placeholder="Código dinámico">
+      </div>
+      <div id="others-section" class="col-12 col-md-4 payment-section" style="display:none;">
+        <label for="debitInfo" class="form-label">Información Débito</label>
+        <input type="text" id="debitInfo" class="form-control" placeholder="Cuenta o débito">
+      </div>
+
+      <!-- BOTÓN FINALIZAR -->
+      <div class="col-12 text-end">
+        <button id="finalizar-compra" type="button" class="btn btn-primary" data-url="{% url 'progresoEnvio' %}">
+          Finalizar compra
+        </button>
+      </div>
+
+    </div> <!-- row -->
+  </form>
+</div>
+
+
+<!-- JavaScript: envío y mostrar secciones de pago -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectCity = document.getElementById("ciudad-envio");
+    const envioCost = document.getElementById("envio-cost");
+    const totalFinal = document.getElementById("total-final");
+    const subtotal = {{ total }};
+
+    function updateEnvio() {
+      const cost = parseInt(selectCity.value, 10);
+      envioCost.innerHTML = `Costo envío:<br><strong>COP $${cost}</strong>`;
+      totalFinal.innerHTML = `<strong>Total:</strong><br>COP $${subtotal + cost}`;
+    }
+
+    selectCity.addEventListener("change", updateEnvio);
+    updateEnvio();
+
+
+    // Payment sections
+    const creditRadio = document.getElementById("creditCard");
+    const nequiRadio  = document.getElementById("nequi");
+    const othersRadio = document.getElementById("others");
+    const creditSec   = document.getElementById("credit-section");
+    const nequiSec    = document.getElementById("nequi-section");
+    const othersSec   = document.getElementById("others-section");
+
+    function updatePaymentSection() {
+      creditSec.style.display = creditRadio.checked ? "block" : "none";
+      nequiSec.style.display  = nequiRadio.checked  ? "block" : "none";
+      othersSec.style.display = othersRadio.checked ? "block" : "none";
+    }
+
+    creditRadio.addEventListener("change", updatePaymentSection);
+    nequiRadio.addEventListener("change", updatePaymentSection);
+    othersRadio.addEventListener("change", updatePaymentSection);
+    updatePaymentSection();
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    const btn = document.getElementById("finalizar-compra");
+    btn.addEventListener("click", function(){
+      window.location.href = btn.getAttribute("data-url");
+    });
+  });
+</script>
+
+<!-- Script para mostrar el resumen de la compra -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cartSummaryDiv = document.getElementById("checkout-cart-summary");
+
+  // Función de formateo a COP similar a la que usas en carrito.js
+  function formatCOP(value) {
+    return new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0
+    }).format(value);
+  }
+
+  // Recupera el carrito del localStorage
+  let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+  if (cartProducts.length > 0) {
+    let html = "<ul>";
+    let total = 0;
+    cartProducts.forEach(product => {
+      html += `<li><strong>${product.albumName}</strong> - ${product.artistName} : ${formatCOP(product.price)}</li>`;
+      total += product.price;
+    });
+    html += "</ul>";
+    html += `<h3>Total a pagar: ${formatCOP(total)}</h3>`;
+    cartSummaryDiv.innerHTML = html;
+  } else {
+    cartSummaryDiv.innerHTML = "<p>No hay productos en el carrito.</p>";
+  }
+});
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const select = document.getElementById("ciudad-envio");
+    const envioCostP = document.getElementById("envio-cost");
+    const totalFinalP = document.getElementById("total-final");
+    // Subtotal que vino del servidor
+    const subtotal = {{ total }};  
+  
+    function updateEnvio() {
+      const cost = parseInt(select.value, 10);
+      envioCostP.innerHTML = `Costo envío:<br><strong>COP $${cost}</strong>`;
+      totalFinalP.innerHTML = `<strong>Total:</strong><br>COP $${subtotal + cost}`;
+    }
+  
+    select.addEventListener("change", updateEnvio);
+  });
+  </script>
+  
+{% endblock contenido %}
+
+{% block pie %}
+    
+{% endblock pie %}

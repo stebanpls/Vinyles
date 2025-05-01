@@ -1,0 +1,167 @@
+/* General styles for the entire page */
+
+html {
+  height: 100%;
+}
+
+header {
+  background-color: #121212; /* Dark background for header */
+  padding: 1rem 0;
+  border-bottom: 1px solid #333; /* Subtle border */
+}
+
+body {
+  display: flex; /* 1. Make the body a flex container */
+  flex-direction: column; /* 2. Stack children vertically (header, main, footer) */
+  min-height: 100vh; /* 3. Ensure body is at least the full viewport height */
+  margin: 0; /* Optional: Remove default body margin */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  /*
+  background-color: #f8f8f8;
+  color: #333;
+  */
+}
+
+.navbar {
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #f8f9fa; /* Light text for brand */
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  color: #f8f9fa; /* Light text for links */
+  margin-right: 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #adb5bd; /* Slightly darker on hover */
+}
+
+.btn-primary {
+  background-color: #121212;
+  border-color: #6c757d;
+}
+
+.btn-primary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+.icono {
+  fill: #f8f9fa;
+}
+
+main {
+  padding: 2rem;
+  background-color: #000000; /* Deeper black */
+  color: #FFFFFF; /* Pure white text */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #121212; /* Dark background for footer */
+  color: #f8f9fa; /* Light text for footer */
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: center;
+  border-top: 1px solid #333; /* Subtle border */
+  flex-shrink: 0;
+}
+
+/* Footer Styling - MODO OSCURO */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px 15px 10px 15px;
+  background-color: #121212;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 180px;
+  padding: 0 15px; /* Padding entre columnas */
+  margin-bottom: 20px;
+  /* --- MODIFICADO --- */
+  display: flex;             /* Habilita Flexbox para la columna */
+  flex-direction: column;    /* Apila h4 y ul verticalmente */
+  justify-content: center;   /* Centra verticalmente el contenido (h4 y ul) */
+  align-items: center;       /* Centra horizontalmente el contenido (h4 y ul) */
+  text-align: center;        /* Centra el texto dentro de h4 y li */
+  /* --- FIN MODIFICADO --- */
+}
+
+.footer-column h4 {
+  /* --- MODIFICADO --- */
+  /* Eliminados márgenes verticales específicos para permitir centrado flex */
+  margin-top: 0px;
+  margin-bottom: 10px; /* Mantenemos espacio debajo del título */
+  /* --- FIN MODIFICADO --- */
+  font-size: 1.1em;
+  color: #f8f9fa;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px; /* Ajustado padding */
+  width: 100%; /* Asegura que el borde ocupe el ancho */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  /* --- MODIFICADO --- */
+  /* Eliminados márgenes verticales específicos */
+  margin: 0;
+  /* --- FIN MODIFICADO --- */
+  width: 100%; /* Asegura que la lista ocupe el ancho para centrado */
+}
+
+.footer-column ul li {
+  /* --- MODIFICADO --- */
+  /* Eliminado margen superior, ajustado inferior */
+  margin-top: 0;
+  margin-bottom: 10px; /* Espacio entre elementos de la lista */
+  /* --- FIN MODIFICADO --- */
+}
+
+.footer-column ul li:last-child {
+    margin-bottom: -10px; /* Quitar margen inferior al último elemento */
+}
+
+.footer-column ul li a {
+  color: #adb5bd;
+  font-size: 0.9em;
+}
+.footer-column ul li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #0a0a0a;
+  font-size: 0.9em;
+  color: #adb5bd;
+  border-top: 1px solid #333;
+  box-sizing: border-box;
+}
+
+.footer-bottom a {
+    color: inherit;
+    margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+    text-decoration: underline;
+}

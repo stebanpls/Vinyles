@@ -1,0 +1,38 @@
+{% extends "plantillaAdministrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleAdminPedido.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Administrador{% endblock titulo %}
+
+{% block contenido %} 
+
+<section class="section">
+    <div class="textos">
+        <h1 class="bienvenida">¡Control total en tus manos!</h1>
+        <p class="bien">Lleva el control total de tus pedidos: revisa los pendientes, monitorea los realizados y gestiona reembolsos sin perder detalle.</p>
+    </div>
+    
+    <a href="{% url 'pedidoPendiente' %}" class="nota rosita">
+        <div class= "value"> ⌚ Pedidos pendientes</div>
+        <h3>📋 Haz clic para revisar los pedidos pendientes.</h3>
+    </a>
+
+    <a href="{% url 'pedidoRealizado' %}" class="nota azul">
+        <div class= "value"> 🎯 Pedidos Realizados</div>
+        <h3>📋 Haz clic para ver pedidos Realizados.</h3>
+    </a>
+
+    <a href="{% url 'adminReembolsos' %}" class="nota lila">
+        <div class= "value">🔄️ Reembolsos</div>
+        <h3>📋 Haz clic para ver reembolsos.</h3>
+    </a>
+</section>
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}  

@@ -1,0 +1,156 @@
+/* Estilos específicos para la página "Sobre Nosotros" */
+
+/* Contenedor principal */
+.about-us-container {
+  max-width: 950px; /* Ancho máximo para buena legibilidad */
+  margin: 40px auto; /* Centrado horizontal y margen vertical */
+  padding: 35px 50px; /* Padding interno generoso */
+  background-color: #1e1e1e; /* Un fondo oscuro ligeramente distinto al body */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid #3a3a3a; /* Borde sutil */
+  color: #c5c5c5; /* Color de texto base para esta sección */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  line-height: 1.75; /* Mejorar legibilidad de párrafos largos */
+}
+
+/* Título principal */
+.about-us-container h1 {
+  text-align: center;
+  color: #e8e8e8; /* Color claro y destacado */
+  margin-bottom: 35px;
+  font-size: 2.4em; /* Tamaño grande */
+  font-weight: 600;
+  border-bottom: 2px solid #4a4a4a; /* Línea separadora */
+  padding-bottom: 20px;
+}
+
+/* Estilo general para las secciones */
+.section {
+  margin-bottom: 40px; /* Espacio entre secciones */
+  padding-top: 25px; /* Espacio sobre el contenido de la sección */
+  border-top: 1px dashed #444; /* Separador punteado sutil */
+}
+
+/* Evitar borde superior en la primera sección */
+.section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Títulos de sección */
+.section h2 {
+  color: #d8d8d8; /* Color claro para títulos de sección */
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  font-weight: 500;
+  border-left: 4px solid #c0a062; /* Un acento de color (ajusta si tienes otro color principal) */
+  padding-left: 15px;
+}
+
+/* Subtítulos (Nuestra Filosofía) */
+.section h3 {
+  color: #cccccc;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+/* Párrafos */
+.about-us-container p {
+  margin-bottom: 18px;
+  color: #b0b0b0; /* Color de párrafo legible */
+}
+
+/* Párrafos de introducción y cierre */
+.intro-text,
+.outro-text {
+  font-size: 1.15em;
+  color: #d0d0d0;
+  text-align: center;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.outro-text {
+  margin-top: 30px; /* Espacio antes del texto final */
+  margin-bottom: 0; /* Sin margen inferior extra */
+}
+
+/* Listas */
+.about-us-container ul {
+  list-style: none; /* Quitar bullets por defecto */
+  padding-left: 20px; /* Indentación */
+  margin-bottom: 25px;
+}
+
+.about-us-container ul li {
+  margin-bottom: 12px; /* Espacio entre ítems */
+  padding-left: 25px; /* Espacio para el icono/bullet personalizado */
+  position: relative; /* Para posicionar el pseudo-elemento */
+  color: #b5b5b5;
+}
+
+/* Bullet personalizado (ejemplo con un círculo) */
+.about-us-container ul li::before {
+  content: '●'; /* Puedes usar '✓', '▶', etc. o un icono FontAwesome si lo activas */
+  position: absolute;
+  left: 0;
+  top: 1px; /* Ajuste vertical fino */
+  color: #c0a062; /* Mismo color que el borde del h2 (ajusta si es necesario) */
+  font-size: 0.9em;
+}
+
+/* Resaltar texto en negrita dentro de párrafos o listas */
+.about-us-container strong {
+  color: #dadada; /* Hacer el texto en negrita un poco más brillante */
+  font-weight: 600;
+}
+
+/* --- Opcional: Estilos para Miembros del Equipo --- */
+/*
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; / Espacio entre miembros /
+  justify-content: center; / Centrar miembros si no llenan la fila /
+  margin-top: 30px;
+}
+
+.member {
+  background-color: #282828; / Fondo ligeramente diferente /
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  flex-basis: 220px; / Ancho base de cada miembro /
+  border: 1px solid #484848;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.member img {
+  width: 100px; / Tamaño fijo para la imagen /
+  height: 100px;
+  border-radius: 50%; / Imagen redonda /
+  object-fit: cover; / Asegurar que la imagen cubra bien /
+  margin-bottom: 15px;
+  border: 3px solid #555;
+}
+
+.member h4 {
+  margin: 10px 0 5px 0;
+  color: #eee;
+  font-size: 1.2em;
+}
+
+.member p {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+*/
+

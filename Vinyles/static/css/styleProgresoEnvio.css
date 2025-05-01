@@ -1,0 +1,45 @@
+.thank-you-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #c9db2865;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .thank-you-container h1 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+  
+  .thank-you-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .progress {
+    height: 35px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 35px;
+  }
+  
+  .estado-envio {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  
+  .estado-icon {
+    font-size: 1.8rem;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
