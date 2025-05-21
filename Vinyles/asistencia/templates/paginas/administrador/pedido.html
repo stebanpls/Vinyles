@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/styleAdminPedido.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Administrador/style_pedido.css' %}">
 {% endblock extra_css %}
 
 {% block titulo %} Vinyles - Administrador{% endblock titulo %}
@@ -15,17 +15,17 @@
         <p class="bien">Lleva el control total de tus pedidos: revisa los pendientes, monitorea los realizados y gestiona reembolsos sin perder detalle.</p>
     </div>
     
-    <a href="{% url 'pedidoPendiente' %}" class="nota rosita">
+    <a href="{% url 'pedido_pendiente' %}" class="nota rosita">
         <div class= "value"> ⌚ Pedidos pendientes</div>
         <h3>📋 Haz clic para revisar los pedidos pendientes.</h3>
     </a>
 
-    <a href="{% url 'pedidoRealizado' %}" class="nota azul">
+    <a href="{% url 'pedido_realizado' %}" class="nota azul">
         <div class= "value"> 🎯 Pedidos Realizados</div>
         <h3>📋 Haz clic para ver pedidos Realizados.</h3>
     </a>
 
-    <a href="{% url 'adminReembolsos' %}" class="nota lila">
+    <a href="{% url 'reembolsos' %}" class="nota lila">
         <div class= "value">🔄️ Reembolsos</div>
         <h3>📋 Haz clic para ver reembolsos.</h3>
     </a>

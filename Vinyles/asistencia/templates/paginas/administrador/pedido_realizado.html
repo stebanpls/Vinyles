@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/stylePedidoPendiente.css' %}">
+    <link rel="stylesheet" href="{% static 'css/administrador/style_pedido_realizado.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock extra_css %}
 
@@ -11,8 +11,8 @@
 {% block contenido %} 
 <section>
     <div class="textos">
-        <h1 class="bienvenida">Pedidos pendientes</h1>
-        <p class="bien">🚚 No dejes que se acumulen. Gestiona los pedidos pendientes y asegúrate de que cada cliente reciba lo suyo a tiempo.</p>
+        <h1 class="bienvenida">Pedidos realizados ✅</h1>
+        <p class="bien">📦 Todo lo que ves aquí ya fue procesado y enviado. Consulta los detalles y asegura que todo esté al día.</p>
     </div>
     <div class="decoracion">
 
@@ -25,7 +25,7 @@
             <!-- Pedido 1 -->
             <div class="pedido">
                 <details>
-                    <summary>Ana González</summary>
+                    <summary>Sofía Mendoza</summary>
                     <div class="info">
                         <div class="compra"><a href="{% url 'adPro' %}">
                             <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
@@ -33,12 +33,11 @@
                         </div>
                     </div>
                     <div class="informacion">
-                        <p><strong>Dirección de domicilio:</strong> Calle 73 A # 53b</p>
-                        <p><strong>Correo electrónico:</strong> anitauwu67@gmail.com</p>
-                        <p><strong>Número de teléfono:</strong> 3202361123</p>
+                        <p><strong>Dirección de domicilio:</strong> Calle 45 # 19A-20</p>
+                        <p><strong>Correo electrónico:</strong> sofimdz04@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3124567890</p>
                         <p><strong>País:</strong> Colombia</p>
-                        <p><strong>Número de compras realizadas:</strong> 1</p>
-                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                        <p><strong>Número de compras realizadas:</strong> 2</p>
                     </div>
                 </details>
             </div>
@@ -46,7 +45,7 @@
             <!-- Pedido 2 -->
             <div class="pedido">
                 <details>
-                    <summary>Juan Pérez</summary>
+                    <summary>Mateo Ruiz</summary>
                     <div class="info">
                         <div class="compra"><a href="{% url 'adPro' %}">
                             <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
@@ -54,12 +53,11 @@
                         </div>
                     </div>
                     <div class="informacion">
-                        <p><strong>Dirección de domicilio:</strong> Carrera 50 # 12-34</p>
-                        <p><strong>Correo electrónico:</strong> juanperez88@gmail.com</p>
-                        <p><strong>Número de teléfono:</strong> 3107894561</p>
+                        <p><strong>Dirección de domicilio:</strong> Carrera 21 # 55-14</p>
+                        <p><strong>Correo electrónico:</strong> mateoruiz99@hotmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3009988776</p>
                         <p><strong>País:</strong> Colombia</p>
-                        <p><strong>Número de compras realizadas:</strong> 3</p>
-                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                        <p><strong>Número de compras realizadas:</strong> 1</p>
                     </div>
                 </details>
             </div>
@@ -67,7 +65,7 @@
             <!-- Pedido 3 -->
             <div class="pedido">
                 <details>
-                    <summary>Camila Ríos</summary>
+                    <summary>Valentina Herrera</summary>
                     <div class="info">
                         <div class="compra"><a href="{% url 'adPro' %}">
                             <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
@@ -75,12 +73,11 @@
                         </div>
                     </div>
                     <div class="informacion">
-                        <p><strong>Dirección de domicilio:</strong> Av. Siempre Viva #742</p>
-                        <p><strong>Correo electrónico:</strong> camiri23@gmail.com</p>
-                        <p><strong>Número de teléfono:</strong> 3001122334</p>
+                        <p><strong>Dirección de domicilio:</strong> Avenida Norte # 105-56</p>
+                        <p><strong>Correo electrónico:</strong> valenh23@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3213344556</p>
                         <p><strong>País:</strong> Colombia</p>
-                        <p><strong>Número de compras realizadas:</strong> 2</p>
-                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                        <p><strong>Número de compras realizadas:</strong> 4</p>
                     </div>
                 </details>
             </div>
@@ -88,7 +85,7 @@
             <!-- Pedido 4 -->
             <div class="pedido">
                 <details>
-                    <summary>Esteban Martínez</summary>
+                    <summary>Daniela Vargas</summary>
                     <div class="info">
                         <div class="compra"><a href="{% url 'adPro' %}">
                             <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
@@ -96,12 +93,11 @@
                         </div>
                     </div>
                     <div class="informacion">
-                        <p><strong>Dirección de domicilio:</strong> Calle 10 # 25-89</p>
-                        <p><strong>Correo electrónico:</strong> estemtz@gmail.com</p>
-                        <p><strong>Número de teléfono:</strong> 3209988776</p>
+                        <p><strong>Dirección de domicilio:</strong> Calle 72 # 30-89</p>
+                        <p><strong>Correo electrónico:</strong> danivargas98@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3137788990</p>
                         <p><strong>País:</strong> Colombia</p>
-                        <p><strong>Número de compras realizadas:</strong> 5</p>
-                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                        <p><strong>Número de compras realizadas:</strong> 3</p>
                     </div>
                 </details>
             </div>
@@ -109,7 +105,7 @@
             <!-- Pedido 5 -->
             <div class="pedido">
                 <details>
-                    <summary>Lucía Torres</summary>
+                    <summary>Tomás Ortega</summary>
                     <div class="info">
                         <div class="compra"><a href="{% url 'adPro' %}">
                             <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
@@ -117,28 +113,16 @@
                         </div>
                     </div>
                     <div class="informacion">
-                        <p><strong>Dirección de domicilio:</strong> Calle 15 # 8-90</p>
-                        <p><strong>Correo electrónico:</strong> luciatorres90@gmail.com</p>
-                        <p><strong>Número de teléfono:</strong> 3104455667</p>
+                        <p><strong>Dirección de domicilio:</strong> Transversal 16 # 8-45</p>
+                        <p><strong>Correo electrónico:</strong> tomasortega22@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3105566778</p>
                         <p><strong>País:</strong> Colombia</p>
-                        <p><strong>Número de compras realizadas:</strong> 4</p>
-                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                        <p><strong>Número de compras realizadas:</strong> 6</p>
                     </div>
                 </details>
             </div>
 
         </div> <!-- FIN lista-pedidos -->
-
-        <!-- JS eliminar pedido -->
-        <script>
-            function eliminarPedido(boton) {
-                const pedido = boton.closest('.pedido');
-                pedido.style.opacity = '0';
-                setTimeout(() => {
-                    pedido.remove();
-                }, 300);
-            }
-        </script>
 
         <!-- 🔍 JS buscador por nombre -->
         <script>

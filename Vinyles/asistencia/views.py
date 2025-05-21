@@ -437,52 +437,52 @@ def producto(request):
 # ADMINISTRADOR
 
 def administrador(request):
-  return render(request, 'paginas/administrador.html')
+  return render(request, 'paginas/Administrador/administrador.html')
 
-def adminNotificaciones(request):
-  return render(request, 'paginas/adminNotificaciones.html')
+def notificaciones(request):
+  return render(request, 'paginas/administrador/notificaciones.html')
 
-def adminPedido(request):
-  return render(request, 'paginas/adminPedido.html')
+def pedido(request):
+  return render(request, 'paginas/administrador/pedido.html')
 
-def adminProducto(request):
-  return render(request, 'paginas/adminProducto.html')
+def producto(request):
+  return render(request, 'paginas/administrador/producto.html')
 
-def adminReembolsos(request):
-  return render(request, 'paginas/adminReembolsos.html')
+def reembolsos(request):
+  return render(request, 'paginas/administrador/reembolsos.html')
 
-def adminUsuario(request):
-  return render(request, 'paginas/adminUsuario.html')
+def usuario(request):
+  return render(request, 'paginas/Administrador/usuario.html')
 
-def adminVerificacion(request):
-  return render(request, 'paginas/adminVerificacion.html')
+def verificacion(request):
+  return render(request, 'paginas/Administrador/verificacion.html')
 
 def adPro(request):
-  return render(request, 'paginas/adPro.html')
+  return render(request, 'paginas/administrador/adPro.html')
 
-def bloqUsers(request):
-  return render(request, 'paginas/bloqUsers.html')
+def bloq_users(request):
+  return render(request, 'paginas/administrador/bloq_users.html')
 
 def generos(request):
   return render(request, 'paginas/generos.html') # Se crea la rendererización de este archivo .HTML
 
-def gestionUsers(request):
-  return render(request, 'paginas/gestionUsers.html')
+def gestion_users(request):
+  return render(request, 'paginas/administrador/gestion_users.html')
 
 def logOut(request):
   return render(request, 'paginas/logOut.html')
 
-def newUsers(request):
-  return render(request, 'paginas/newUsers.html')
+def new_users(request):
+  return render(request, 'paginas/Administrador/new_users.html')
 
-def pedidoPendiente(request):
-  return render(request, 'paginas/pedidoPendiente.html')
+def pedido_pendiente(request):
+  return render(request, 'paginas/administrador/pedido_pendiente.html')
 
-def pedidoRealizado(request):
-  return render(request, 'paginas/pedidoRealizado.html')
+def pedido_realizado(request):
+  return render(request, 'paginas/administrador/pedido_realizado.html')
 
 def ventas(request):
-  return render(request, 'paginas/ventas.html')
+  return render(request, 'paginas/Administrador/ventas.html')
 
 
 #VINILOS ADMINISTRADOR

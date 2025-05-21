@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/styleAdminUsuario.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Administrador/style_usuario.css' %}">
 {% endblock extra_css %}
 
 {% block titulo %} Vinyles - Administrador{% endblock titulo %}
@@ -15,12 +15,12 @@
         <p class="bien">Accede a la lista de usuarios, bloquea cuentas sospechosas y ¡asegura un entorno confiable para todos!</p>
     </div>
     
-    <a href="{% url 'gestionUsers' %}" class="nota rosita">
+    <a href="{% url 'gestion_users' %}" class="nota rosita">
         <div class= "value"> 😊 Lista <br>de Usuarios</div>
         <h3>📋 Haz clic para gestionar Lista de usuarios.</h3>
     </a>
 
-    <a href="{% url 'bloqUsers' %}" class="nota lila">
+    <a href="{% url 'bloq_users' %}" class="nota lila">
         <div class= "value"> ❌ Usuarios bloqueados</div>
         <h3>📋 Haz clic para gestionar Usuarios bloqueados.</h3>
     </a>
