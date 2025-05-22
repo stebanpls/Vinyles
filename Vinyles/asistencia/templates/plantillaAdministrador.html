@@ -4,7 +4,7 @@
 <head>
     <title>{% block titulo %}{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'images/vinilo.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/stylePlantillaAdministrador.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Administrador/stylePlantilla.css' %}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,16 +27,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'adminProducto' %}">Productos</a>
+                            <a class="nav-link" href="{% url 'producto' %}">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'adminUsuario' %}">Usuarios</a>
+                            <a class="nav-link" href="{% url 'usuario' %}">Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'adminPedido' %}">Pedidos</a>
+                            <a class="nav-link" href="{% url 'pedido' %}">Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'adminVerificacion' %}">Verificación</a>
+                            <a class="nav-link" href="{% url 'verificacion' %}">Verificación</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logOut' %}">Log Out</a>

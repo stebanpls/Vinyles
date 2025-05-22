@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/styleAdministrador.css' %}">
+    <link rel="stylesheet" href="{% static 'css/administrador/style_administrador.css' %}">
 {% endblock extra_css %}
 
 {% block titulo %} Vinlyles - Administrador{% endblock titulo %}
@@ -22,14 +22,14 @@
         <div class="desc">Total: $1.230.000</div>
     </a>
 
-    <a href="{% url 'newUsers' %}" class="nota azul">
+    <a href="{% url 'new_users' %}" class="nota azul">
         <h3>👤 Nuevos usuarios</h3>
         <div class="value">3</div>
         <div class="desc">Registrados hoy</div>
     </a>
 
 
-    <a href="{% url 'adminNotificaciones'%}" class="nota piel">
+    <a href="{% url 'notificaciones'%}" class="nota piel">
         <h3>🔔 Notificaciones</h3>
         <div class="value">2</div>
         <div class="desc">Soporte necesita respuesta</div>
