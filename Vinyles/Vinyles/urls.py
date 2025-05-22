@@ -38,6 +38,7 @@ urlpatterns = [
     path('terCon/', views.terCon, name='terCon'),
     path('vinilo/', views.vinilo, name='vinilo'),
 
+
     # USUARIO COMPRADOR
     path('albumesCom/', views.albumesCom, name='albumesCom'),
     path('carrito/', views.carrito, name='carrito'),
@@ -72,6 +73,7 @@ urlpatterns = [
     path('pedidoPendiente', views.pedidoPendiente, name='pedidoPendiente'),
     path('pedidoRealizado', views.pedidoRealizado, name='pedidoRealizado'),
     path('ventas/', views.ventas, name='ventas'),
+    path('masvendidos/', views.masVendidos, name='masVendidos'),
 
     # ALBUMES
     path('bts/', views.bts, name='bts'),

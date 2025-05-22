@@ -1,0 +1,60 @@
+{% extends "plantillaAdministrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/styleVentas.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Mas Vendidos {% endblock titulo %}
+
+{% block contenido %} 
+
+<section class="section">
+    <div class="textos">
+        <h4 class="bienvenida">Más vendidos</h4>
+        <p class="bien">Estos son los productos mas vendidos hasta la fecha.</p>
+    </div>
+    <table >
+        <thead>
+            <tr>
+            <th>Cantidad Vendida</th>
+            <th>Producto</th>
+            <th>Total Vendido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>7</td>
+            <td><a href="{% url 'theBeatles' %}"> The Beatles - Abbey Road</a></td>
+            <td>$1.750.000</td>
+            </tr>
+            <tr>
+            <td>5</td>
+            <td><a href="{% url 'nirvana' %}">Nirvana - In Utero</a></td>
+            <td>$1.050.000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><a href="{% url 'bts'%}">BTS - Be</a></td>
+                <td>$1.000.000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><a href="{% url 'mjBad'%}">Michael Jackson - Bad</a></td>
+                    <td>$1.080.000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="{% url 'eminemShow'%}">Eminem - The Eminem Show</a></td>
+                        <td>$750.000</td>
+                        </tr>
+            <!-- Más filas -->
+        </tbody>
+        </table>
+
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

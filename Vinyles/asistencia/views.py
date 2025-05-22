@@ -484,6 +484,9 @@ def pedidoRealizado(request):
 def ventas(request):
   return render(request, 'paginas/ventas.html')
 
+def masVendidos(request):
+  return render(request, 'paginas/masvendidos.html')
+
 
 #VINILOS ADMINISTRADOR
 
