@@ -1,0 +1,76 @@
+{% extends "plantillas/plantilla_publico.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/publico/style_sobre_nosotros.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Sobre Nosotros {% endblock titulo %}
+
+{% block contenido %}
+<section class="about-us-container">
+    <h1>Sobre Nosotros y Nuestro Proyecto</h1>
+
+    <p class="intro-text">
+        Bienvenidos a <strong>Vinyles</strong>, un rincón digital creado desde la pura pasión por la música en su formato más cálido y tangible: el disco de vinilo. Somos más que una plataforma; somos una comunidad en crecimiento para coleccionistas, melómanos y cualquiera que sienta la llamada del surco.
+    </p>
+
+    <div class="section team-section">
+        <h2>Quiénes Somos</h2>
+        <p>
+            Somos un equipo de desarrolladores entusiastas, profundamente enamorados de la música y la cultura que rodea al vinilo. Nos motiva el deseo de construir un espacio donde la conexión entre aficionados sea tan importante como la propia colección. Cada detalle de Vinyles está pensado con el respeto que merece este formato icónico, desde la interfaz hasta las funcionalidades.
+        </p>
+        <p>
+            Creemos en el valor perdurable de un álbum físico, en el arte de las portadas, en el ritual de colocar la aguja y dejarse llevar por un sonido auténtico y lleno de matices.
+        </p>
+        <!-- Opcional: Si quieres añadir miembros específicos -->
+        <!--
+        <div class="team-members">
+            <div class="member">
+                <img src="{% static 'images/tu_foto.jpg' %}" alt="Nombre Miembro">
+                <h4>Tu Nombre / Nombre Miembro</h4>
+                <p>Rol / Pasión</p>
+            </div>
+            ... más miembros ...
+        </div>
+        -->
+    </div>
+
+    <div class="section project-section">
+        <h2>El Proyecto: Vinyles</h2>
+        <p>
+            <strong>Vinyles</strong> nace con la ambición de ser el punto de encuentro definitivo para los amantes del vinilo en el mundo hispanohablante (¡y más allá!). Nuestra plataforma está diseñada para:
+        </p>
+        <ul>
+            <li>Facilitar el <strong>descubrimiento</strong> de nueva música y ediciones especiales.</li>
+            <li>Permitir a los usuarios <strong>catalogar, gestionar y presumir</strong> sus preciadas colecciones.</li>
+            <li>Crear un <strong>mercado seguro y fiable</strong> para comprar, vender e intercambiar discos entre particulares y tiendas especializadas.</li>
+            <li>Ofrecer <strong>información detallada</strong> y curada sobre artistas, sellos, lanzamientos y la historia detrás de los álbumes.</li>
+            <li>Fomentar una <strong>comunidad activa</strong> a través de foros, reseñas y listas compartidas.</li>
+        </ul>
+        <p>
+            Construido sobre tecnología moderna como Django, Python, y SQL, buscando ofrecer una experiencia robusta, intuitiva y visualmente atractiva, que honre la estética y la calidad del mundo del vinilo.
+        </p>
+    </div>
+
+    <div class="section philosophy-section">
+        <h3>Nuestra Filosofía</h3>
+        <ul>
+            <li><strong>Pasión Sonora:</strong> La música y el vinilo son el corazón de todo.</li>
+            <li><strong>Comunidad Conectada:</strong> Creemos en el poder de compartir esta afición.</li>
+            <li><strong>Autenticidad y Calidad:</strong> Reflejar el valor intrínseco del formato físico.</li>
+            <li><strong>Descubrimiento Continuo:</strong> Siempre hay una joya musical esperando ser encontrada.</li>
+            <li><strong>Confianza y Transparencia:</strong> Esenciales para las interacciones y el comercio.</li>
+        </ul>
+    </div>
+
+    <p class="outro-text">
+        ¡Gracias por formar parte de Vinyles! Te invitamos a explorar, participar y, sobre todo, a seguir disfrutando de la incomparable magia del vinilo.
+    </p>
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+    
+{% endblock pie %}

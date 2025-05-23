@@ -1,0 +1,184 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_adpro.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<div class="textos">
+    <h1 class="bienvenida">Gestion de productos</h1>
+    <p class="bien">Edita la información de tus productos. Actualiza detalles, precios y más, directamente desde esta sección.</p>
+</div>
+
+<section>
+    <div class="guardar-global">
+        <div class = "Botonsito"><button onclick="guardarCambios()" id="guardarBtn" class="button-guardar">Guardar</button></div>
+        <button onclick="activarEdicion()" class="button-editar">Editar información</button>
+    </div>
+    <div class = "cuadro">
+        <div class ="contenedor">
+            <img src="{%static 'images/music.jpg' %}" alt="Snow" >
+        </div>
+        
+        <div class = "info">
+            <div class= "titulo">
+                <p class="editable" contenteditable="false">I Am Music</p>
+            </div>
+            <div class = "precio">
+                <p>Precio:</p>
+            </div>
+            <div class = "valor">
+                <p class="editable" contenteditable="false">$250.000</p>
+            </div>
+            <div>
+                <button class="button" onclick="marcarNoDisponible()">No disponible</button>
+                <div id="mensajeNoDisponible" class = "NoDis"></div>
+            </div>
+            <div>
+                <button class="button2" onclick="Disponible()">Disponible</button>
+                <div id="Disponible" class = "Dis"></div>
+            </div>
+        </div>
+    </div>
+    <div class="detalles">
+        <div class="album">
+            <details>
+                <summary class="acor">Información del álbum</summary>
+                <p><span class="etiqueta">Género:</span><span class="dato editable" contenteditable="false">Hip-hop, trap, phonk, rage rap</span></p>
+    <p><span class="etiqueta">Lanzamiento:</span><span class="dato editable" contenteditable="false">14 de marzo de 2025</span></p>
+    <p><span class="etiqueta">Sello discográfico:</span><span class="dato editable" contenteditable="false">AWGE, Interscope</span></p>
+    <p><span class="etiqueta">Productor(es):</span><span class="dato editable" contenteditable="false">Kanye West, Travis Scott, Mike Dean, Metro Boomin, F1lthy, Ojivolta, Lil 88, Lucian, Lukrative, Twisco, KP, Ssort, 100Yrd, Brak3, DJ Moon, Ramzoid</span></p>
+            </details>
+        </div>
+    
+        <div class="artista">
+            <details>
+                <summary class="acor">Información del artista</summary>
+                <p class="editable" contenteditable="false">
+                    El album ha estado en un prolongado proceso de desarrollo durante al menos tres años, y las declaraciones de Carti sobre su progreso han sido limitadas cuando ha hablado publicamente sobre el proyecto.
+                </p>
+            </details>
+        </div>
+
+        <div class="canciones">
+            <details>
+                <summary class="acor">
+                    Listado de canciones 
+                </summary>
+                <div class="listap">
+                    <ul class="lista-canciones editable" contenteditable="false">
+                        <li><i class="fa-solid fa-music"></i> Pop Out</li>
+                        <li><i class="fa-solid fa-music"></i> Crush</li>
+                        <li><i class="fa-solid fa-music"></i> K Pop</li>
+                        <li><i class="fa-solid fa-music"></i> Evil J0rdan</li>
+                        <li><i class="fa-solid fa-music"></i> Mojo Jojo</li>
+                        <li><i class="fa-solid fa-music"></i> Philly</li>
+                        <li><i class="fa-solid fa-music"></i> Radar</li>
+                        <li><i class="fa-solid fa-music"></i> Rather Lie</li>
+                        <li><i class="fa-solid fa-music"></i> Fine Shit</li>
+                        <li><i class="fa-solid fa-music"></i> Backd00r</li>
+                        <li><i class="fa-solid fa-music"></i> Toxic</li>
+                        <li><i class="fa-solid fa-music"></i> Munyun</li>
+                        <li><i class="fa-solid fa-music"></i> Crank</li>
+                        <li><i class="fa-solid fa-music"></i> Charge Dem Hoes a Fee</li>
+                        <li><i class="fa-solid fa-music"></i> Good Credit</li>
+                        <li><i class="fa-solid fa-music"></i> I Seeeeee You Baby Boi</li>
+                        <li><i class="fa-solid fa-music"></i> Wake Up F1lthy</li>
+                        <li><i class="fa-solid fa-music"></i> Jumpin</li>
+                        <li><i class="fa-solid fa-music"></i> Trim</li>
+                        <li><i class="fa-solid fa-music"></i> Cocaine Nose</li>
+                        <li><i class="fa-solid fa-music"></i> We Need All Da Vibes</li>
+                        <li><i class="fa-solid fa-music"></i> Olimpia</li>
+                        <li><i class="fa-solid fa-music"></i> Opm Babi</li>
+                        <li><i class="fa-solid fa-music"></i> Twin Trim</li>
+                        <li><i class="fa-solid fa-music"></i> Like Weezy</li>
+                        <li><i class="fa-solid fa-music"></i> Dis 1 Got It</li>
+                        <li><i class="fa-solid fa-music"></i> Walk</li>
+                        <li><i class="fa-solid fa-music"></i> HBA</li>
+                        <li><i class="fa-solid fa-music"></i> Overly</li>
+                        <li><i class="fa-solid fa-music"></i> South Atlanta Baby</li>
+                    </ul>
+                </div>
+                
+            </details>
+        </div>
+        
+        <div class="comentarios">
+            <details>
+                <summary class="acor">Reseñas y comentarios</summary>
+                <div class="comentario">
+                    <div class="avatar">
+                        <img src="{%static 'images/fotosusuario/lauragomez.jpg' %}" alt="Avatar de laura">
+                        
+                    </div>
+                    <div class="contenido-comentario">
+                        <a href = "{% url "lauraG" %}">laura Gomez</a>
+                        <p class="texto">¡Excelente calidad y servicio!</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+</section>
+<script>
+    function activarEdicion() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = true;
+            campo.style.border = "1px dashed #ccc";
+        });
+    }
+    
+    function guardarCambios() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = false;
+            campo.style.border = "none";
+        });
+    
+        // Mensaje de confirmación
+        const mensaje = document.createElement("p");
+        mensaje.textContent = "✅";
+        mensaje.classList.add("mensaje-guardado");
+        mensaje.style.color = "green";
+        mensaje.style.fontWeight = "bold";
+    
+        const contenedor = document.querySelector(".guardar-global");
+        contenedor.appendChild(mensaje);
+    
+        setTimeout(() => mensaje.remove(), 3000);
+    }
+    
+    // 👇 ESTA ES LA FUNCIÓN QUE MARCA COMO NO DISPONIBLE
+    function marcarNoDisponible() {
+        const contenedor = document.getElementById("mensajeNoDisponible");
+    
+        contenedor.textContent = "📦 Marcado como no disponible";
+        contenedor.style.color = "red";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+
+    function Disponible() {
+        const contenedor = document.getElementById("Disponible");
+    
+        contenedor.textContent = "✅ Disponible";
+        contenedor.style.color = "green";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+</script>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

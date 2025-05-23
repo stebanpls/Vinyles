@@ -1,0 +1,71 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_producto.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Productos {% endblock titulo %}
+
+{% block contenido %} 
+        <section class="section">
+            <div class="textos">
+                <h1 class="bienvenida">Productos</h1>
+                <p class="bien">Aquí puedes visualizar y manejar todos los productos disponibles en el sistema. ¡Haz clic para gestionar!</p>
+            </div>
+
+            <div class="albumes">
+                <a href="{% url 'admin_adPro' %}" class="link">
+                    <div class="album-card">
+                        <img src="{% static 'images/bad.jpg' %}" alt="Álbum Bad - Michael Jackson"/>
+                        <p>
+                            <strong>Álbum:</strong> Bad
+                        </p>
+                        <p>
+                            <strong>Artista:</strong> Michael Jackson
+                        </p>
+                    </div>
+                </a>
+
+                <a href="{% url 'admin_adPro' %}" class="link">
+                    <div class="album-card">
+                        <img src="{% static 'images/master.jpg' %}" alt="Álbum Master of Puppets - Metallica" />
+                        <p>
+                            <strong>Álbum:</strong> Master of Puppets
+                        </p>
+                        <p>
+                            <strong>Artista:</strong> Metallica
+                        </p>
+                    </div>
+                </a>
+
+                <a href="{% url 'admin_adPro' %}" class="link">
+                    <div class="album-card">
+                        <img src="{% static 'images/joe.jpg' %}" alt="Álbum Los mejores Exitos - Joe Arroyo" />
+                        <p>
+                            <strong>Álbum:</strong> Los Mejores Exitos
+                        </p>
+                        <p>
+                            <strong>Artista:</strong> Joe Arroyo
+                        </p>
+                    </div>
+                </a>
+
+                <a href="{% url 'admin_adPro' %}" class="link">
+                    <div class="album-card">
+                        <img src="{% static 'images/thriller.jpg' %}" alt="Álbum Thriller - Michael Jackson" />
+                        <p>
+                            <strong>Álbum:</strong> Thriller
+                        </p>
+                        <p>
+                            <strong>Artista:</strong> Michael Jackson
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

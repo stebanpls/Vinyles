@@ -1,0 +1,61 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/usuarios/adUsuariosPerfil.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Administrador - usuarios {% endblock titulo %}
+
+{% block contenido %} 
+<div class="perfil-container">
+    <h2 class="titulo-perfil">Perfil usuario</h2>
+    
+    <div class="perfil-card">
+        <div class="perfil-avatar">
+            <img src="{% static 'images/fotosusuario/andreaVillalobos.jpg' %}" alt="Avatar">
+            <h3>Alex Rojas </h3>
+        </div>
+
+        <div class="perfil-info">
+            <p><strong>Correo electrónico:</strong> Aandreitapp@gmail.com</p>
+            <p><strong>Número de teléfono:</strong> 3218730870</p>
+            <p><strong>País:</strong> Colombia</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bloq">
+    <div class="bloq-wrapper">
+        <p id="mensaje-bloqueo" class="mensaje-flotante"></p>
+        <button id="boton-bloqueo" class="bloquear" onclick="toggleBloqueo()">Bloquear usuario</button>
+    </div>
+</div>
+
+<script>
+    function toggleBloqueo() {
+        const boton = document.getElementById('boton-bloqueo');
+        const mensaje = document.getElementById('mensaje-bloqueo');
+    
+        if (boton.textContent === "Bloquear usuario") {
+            mensaje.textContent = "Usuario bloqueado con éxito ✅";
+            boton.textContent = "Desbloquear usuario";
+            boton.classList.add("desbloquear");
+        } else {
+            mensaje.textContent = "Usuario desbloqueado con éxito ✅";
+            boton.textContent = "Bloquear usuario";
+            boton.classList.remove("desbloquear");
+        }
+    
+        mensaje.classList.add("visible");
+        setTimeout(() => {
+            mensaje.classList.remove("visible");
+        }, 2000);
+    }
+</script>
+
+
+
+{% endblock contenido %}
+
+{% block pie %} Este es el PIE de Álbumes {% endblock pie %}

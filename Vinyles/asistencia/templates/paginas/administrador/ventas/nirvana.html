@@ -1,0 +1,167 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_adpro.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<section>
+    <div class="guardar-global">
+        <div class = "Botonsito"><button onclick="guardarCambios()" id="guardarBtn" class="button-guardar">Guardar</button></div>
+        <button onclick="activarEdicion()" class="button-editar">Editar información</button>
+    </div>
+    <div class = "cuadro">
+        <div class ="contenedor">
+            <img src="{%static 'images/nirvana in utero.jpg' %}" alt="Snow" >
+        </div>
+        
+        <div class = "info">
+            <div class= "titulo">
+                <p class="editable" contenteditable="false">In Utero</p>
+            </div>
+            <div class = "precio">
+                <p>Precio:</p>
+            </div>
+            <div class = "valor">
+                <p class="editable" contenteditable="false">$210.000</p>
+            </div>
+            <div>
+                <button class="button" onclick="marcarNoDisponible()">No disponible</button>
+                <div id="mensajeNoDisponible" class = "NoDis"></div>
+            </div>
+            <div>
+                <button class="button2" onclick="Disponible()">Disponible</button>
+                <div id="Disponible" class = "Dis"></div>
+            </div>
+        </div>
+    </div>
+    <div class="detalles">
+        <div class="album">
+            <details>
+                <summary class="acor">Información del álbum</summary>
+                <p><span class="etiqueta">Género:</span><span class="dato editable" contenteditable="false">Grunge, rock alternativo</span></p>
+    <p><span class="etiqueta">Lanzamiento:</span><span class="dato editable" contenteditable="false">21 de septiembre de 1993</span></p>
+    <p><span class="etiqueta">Sello discográfico:</span><span class="dato editable" contenteditable="false">DGC Records</span></p>
+    <p><span class="etiqueta">Productor(es):</span><span class="dato editable" contenteditable="false">Steve Albini, Nirvana, Scott Litt</span></p>
+            </details>
+        </div>
+    
+        <div class="artista">
+            <details>
+                <summary class="acor">Información del artista</summary>
+                <p class="editable" contenteditable="false">
+                    Nirvana fue una banda estadounidense formada en 1987 en Aberdeen, Washington, integrada por Kurt Cobain (voz y guitarra), Krist Novoselic (bajo) y Dave Grohl (batería). Son una de las bandas más representativas del movimiento grunge de los 90s.
+In Utero fue su tercer y último álbum de estudio. A diferencia del más pulido Nevermind, este disco tiene un sonido más crudo, visceral y directo. Fue la forma de la banda de recuperar el control artístico y alejarse de lo comercial. Cobain lo usó para expresar sus demonios internos con brutal honestidad.
+                </p>
+            </details>
+        </div>
+
+        <div class="canciones">
+            <details>
+                <summary class="acor">
+                    Listado de canciones 
+                </summary>
+                <div class="listap">
+                    <ul class="lista-canciones editable" contenteditable="false">
+                        <li><i class="fa-solid fa-music"></i> Serve the Servants</li>
+                        <li><i class="fa-solid fa-music"></i> Scentless Apprentice</li>
+                        <li><i class="fa-solid fa-music"></i> Heart-Shaped Box</li>
+                        <li><i class="fa-solid fa-music"></i> Rape Me</li>
+                        <li><i class="fa-solid fa-music"></i> Frances Farmer Will Have Her Revenge on Seattle</li>
+                        <li><i class="fa-solid fa-music"></i> Dumb</li>
+                        <li><i class="fa-solid fa-music"></i> Very Ape</li>
+                        <li><i class="fa-solid fa-music"></i> Milk It</li>
+                        <li><i class="fa-solid fa-music"></i> Pennyroyal Tea</li>
+                        <li><i class="fa-solid fa-music"></i> Radio Friendly Unit Shifter</li>
+                        <li><i class="fa-solid fa-music"></i> Tourette’s</li>
+                        <li><i class="fa-solid fa-music"></i> All Apologies</li>
+
+                    </ul>
+                </div>
+                
+            </details>
+        </div>
+        
+        <div class="comentarios">
+            <details>
+                <summary class="acor">Reseñas y comentarios</summary>
+                <div class="comentario">
+                    <div class="avatar">
+                        <img src="{%static 'images/fotosusuario/carlosR.jpg' %}" alt="Avatar de laura">
+                        
+                    </div>
+                    <div class="contenido-comentario">
+                        <a href = "{% url "carlosR" %}">Carlos Ruiz</a>
+                        <p class="texto"> Muy Bueno </p>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+</section>
+<script>
+    function activarEdicion() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = true;
+            campo.style.border = "1px dashed #ccc";
+        });
+    }
+    
+    function guardarCambios() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = false;
+            campo.style.border = "none";
+        });
+    
+        // Mensaje de confirmación
+        const mensaje = document.createElement("p");
+        mensaje.textContent = "✅";
+        mensaje.classList.add("mensaje-guardado");
+        mensaje.style.color = "green";
+        mensaje.style.fontWeight = "bold";
+    
+        const contenedor = document.querySelector(".guardar-global");
+        contenedor.appendChild(mensaje);
+    
+        setTimeout(() => mensaje.remove(), 3000);
+    }
+    
+    // 👇 ESTA ES LA FUNCIÓN QUE MARCA COMO NO DISPONIBLE
+    function marcarNoDisponible() {
+        const contenedor = document.getElementById("mensajeNoDisponible");
+    
+        contenedor.textContent = "📦 Marcado como no disponible";
+        contenedor.style.color = "red";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+
+    function Disponible() {
+        const contenedor = document.getElementById("Disponible");
+    
+        contenedor.textContent = "✅ Disponible";
+        contenedor.style.color = "green";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+    </script>
+    
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

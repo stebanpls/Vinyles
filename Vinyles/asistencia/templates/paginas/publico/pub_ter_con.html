@@ -1,0 +1,83 @@
+{% extends "plantillas/plantilla_publico.html" %}
+{% load static %}
+
+{% block extra_css %}
+    {# Load the specific CSS for this page #}
+    <link rel="stylesheet" href="{% static 'css/paginas/publico/style_ter_con.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Términos y Condiciones {% endblock titulo %}
+
+{% block contenido %}
+<section class="terminos-condiciones">
+    <h2>Términos y Condiciones de Uso - Vinyles</h2>
+    {% verbatim %}
+    <p class="fecha-actualizacion">Última actualización: 24 de Abril de 2025</p>
+
+    <p>
+        Bienvenido a Vinyles. Estos Términos y Condiciones ("Términos") rigen el uso de nuestro sitio web ubicado en [Insertar URL del sitio web] (el "Sitio") y la compra de productos ofrecidos en él. Al acceder o utilizar nuestro Sitio y realizar una compra, usted ("Usuario" o "Cliente") acepta estar sujeto a estos Términos. Si no está de acuerdo con alguna parte de los términos, no podrá acceder al Sitio ni utilizar nuestros servicios.
+    </p>
+    {% endverbatim %}
+
+    <h3>1. Información General y Aceptación</h3>
+    <p>
+        Este Sitio es operado por Vinyles ("Nosotros", "Nuestro"). El acceso y uso del Sitio implican la aceptación plena y sin reservas por parte del Usuario de todas y cada una de las condiciones incluidas en estos Términos. Nos reservamos el derecho de modificar estos Términos en cualquier momento, notificando los cambios en esta página. El uso continuado del Sitio después de dichas modificaciones constituirá su aceptación de los nuevos términos.
+    </p>
+
+    <h3>2. Uso del Sitio Web</h3>
+    <p>
+        El Usuario se compromete a utilizar el Sitio de conformidad con la ley, la moral, el orden público y los presentes Términos. Se prohíbe el uso del Sitio con fines ilícitos, lesivos de los derechos e intereses de terceros, o que de cualquier forma puedan dañar, inutilizar, sobrecargar o deteriorar el Sitio o impedir la normal utilización por parte de otros usuarios.
+    </p>
+
+    <h3>3. Productos y Precios</h3>
+    <p>
+        Ofrecemos a la venta discos de vinilo y productos relacionados ("Productos"). Las descripciones de los Productos se proporcionan con la mayor exactitud posible. Sin embargo, no garantizamos que las descripciones, colores, imágenes u otro contenido del Sitio sean completamente precisos, completos, fiables, actuales o libres de errores. Los precios de los Productos están indicados en Pesos Colombianos (COP) e incluyen los impuestos aplicables (como el IVA), salvo que se indique lo contrario. Los gastos de envío no están incluidos en el precio inicial y se detallarán durante el proceso de compra. Nos reservamos el derecho de modificar los precios en cualquier momento sin previo aviso.
+    </p>
+
+    <h3>4. Proceso de Compra y Pago</h3>
+    <p>
+        Para realizar una compra, el Usuario deberá seguir el procedimiento de compra online y hacer clic en "Confirmar Pedido" o similar. Tras esto, recibirá un correo electrónico acusando recibo de su pedido (la "Confirmación de Pedido"). El contrato entre usted y nosotros se formalizará únicamente cuando le enviemos la Confirmación de Envío. Aceptamos los siguientes métodos de pago: Tarjeta de Crédito/Débito (Visa, Mastercard), PayPal, Transferencia Bancaria. El pago debe realizarse en el momento de confirmar el pedido. Garantizamos la seguridad de las transacciones mediante protocolo SSL.
+    </p>
+
+    <h3>5. Envíos y Entregas</h3>
+    <p>
+        Realizamos envíos a toda la región Colombiana. Los pedidos se procesan generalmente en un plazo de 2 a 5 días hábiles después de la confirmación del pago. Los plazos de entrega estimados se indicarán durante el proceso de compra y pueden variar según el destino y la empresa de mensajería. No nos hacemos responsables por retrasos imputables a la empresa de transporte, aduanas, causas de fuerza mayor o direcciones incorrectas proporcionadas por el Usuario. El riesgo de pérdida o daño de los Productos se transfiere al Cliente en el momento de la entrega.
+    </p>
+
+    <h3>6. Política de Devoluciones y Reembolsos</h3>
+    <p>
+        Aceptamos devoluciones de Productos defectuosos, dañados durante el envío o incorrectos, siempre que se nos notifique dentro de los 7 días naturales siguientes a la recepción del pedido. Para iniciar una devolución, por favor contacte con nosotros a través de [Indicar método de contacto para devoluciones]. Los Productos deben devolverse en su estado original y embalaje. Para obtener información detallada sobre el proceso, condiciones y plazos, consulte nuestra <a href="{% url 'reembolsos' %}" class="link-reembolsos">Política de Reembolsos y Devoluciones</a>.
+    </p>
+
+    <h3>7. Propiedad Intelectual</h3>
+    <p>
+        Todo el contenido presente en el Sitio, incluyendo, sin limitación, textos, gráficos, logos, iconos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad de Vinyles o de sus proveedores de contenido y está protegido por las leyes de propiedad intelectual nacionales e internacionales. Queda estrictamente prohibida la reproducción, distribución, modificación o cualquier otro uso no autorizado expresamente por escrito por Vinyles.
+    </p>
+
+    <h3>8. Limitación de Responsabilidad</h3>
+    <p>
+        En la medida máxima permitida por la ley aplicable, Vinyles no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos, incluyendo, sin limitación, pérdida de beneficios, datos, uso, fondo de comercio u otras pérdidas intangibles, resultantes de (i) su acceso o uso o incapacidad para acceder o usar el Sitio; (ii) cualquier conducta o contenido de terceros en el Sitio; (iii) cualquier contenido obtenido del Sitio; y (iv) acceso no autorizado, uso o alteración de sus transmisiones o contenido.
+    </p>
+
+    <h3>9. Privacidad</h3>
+    <p>
+        La recopilación y uso de su información personal se rige por nuestra Política de Privacidad, la cual puede consultar en [Crear Enlace a la Política de Privacidad].
+    </p>
+
+    <h3>10. Ley Aplicable y Jurisdicción</h3>
+    <p>
+        Estos Términos se regirán e interpretarán de acuerdo con las leyes de Colombia. Cualquier disputa que surja en relación con estos Términos será sometida a la jurisdicción exclusiva de los tribunales de Colombia.
+    </p>
+
+    <h3>11. Contacto</h3>
+    <p>
+        Si tiene alguna pregunta sobre estos Términos y Condiciones, puede contactarnos a través de:
+        Correo electrónico: contacto@vinyles.com. También puedes contactar a nuestro <a href="{% url 'soporte' %}" class="link-soporte">Servicio al Cliente</a>
+    </p>
+
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+    {{ block.super }}
+{% endblock pie %}

@@ -1,0 +1,173 @@
+/* styleDdl.css - Adaptado para Tema Oscuro del Proyecto Vinyles */
+
+/* --- NO ESTABLECER background-color en body aquí --- */
+/* El color de fondo general lo maneja la plantilla (main) */
+
+/* Contenedor principal para el contenido SQL/DDL (opcional, para centrar/limitar ancho) */
+.sql-content-wrapper {
+  max-width: 1000px; /* Ajusta según necesites */
+  margin: 20px auto; /* Centra el contenido */
+  padding: 20px;
+  background-color: #1a1a1a; /* Un fondo ligeramente distinto al main para agrupar */
+  border-radius: 8px;
+  border: 1px solid #333; /* Borde sutil */
+  color: #ccc; /* Color de texto base para esta sección */
+  box-sizing: border-box; /* Asegura que padding y border se incluyan en el max-width */
+}
+
+/* --- Elementos Principales con Ancho Consistente --- */
+
+.excel,
+.imagen,
+table,
+pre,
+code,
+#indiceAlfabetico {
+  width: 100%;             /* <<< MODIFICADO/AÑADIDO: Todos ocupan el 100% del contenedor padre */
+  box-sizing: border-box;  /* <<< AÑADIDO: Asegura que padding y border se incluyan en el width */
+  margin-bottom: 30px;     /* Espaciado inferior consistente */
+}
+
+/* --- Estilos Específicos (manteniendo width: 100%) --- */
+
+.excel {
+  /* width: 100%; */ /* Ya establecido arriba */
+  height: 900px; /* O ajusta a 'auto' si prefieres que la altura dependa del contenido */
+  overflow: auto;
+  border: 10px solid #444;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  /* margin-bottom: 50px; */ /* Ajustado a 30px arriba */
+}
+
+.imagen {
+  /* width: 100%; */ /* Ya establecido arriba */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Evita espacio extra debajo si es inline */
+  border-radius: 8px;
+  border: 10px solid #444;
+  /* margin-bottom: 50px; */ /* Ajustado a 30px arriba */
+}
+
+table {
+  /* width: 100%; */ /* Ya establecido arriba */
+  /* margin-bottom: 30px; */ /* Ya establecido arriba */
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #ccc;
+  background-color: #222;
+  border-radius: 8px;
+  border: 10px solid #444; /* Mantenido borde grueso */
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+pre, code {
+  /* width: 100%; */ /* Ya establecido arriba */
+  background-color: #222;
+  border-radius: 8px;
+  color: #c5c8c6;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  /* margin-bottom: 50px; */ /* Ajustado a 30px arriba */
+  text-align: left;
+  padding: 0px; /* Añadir padding interno para el código */
+}
+
+#indiceAlfabetico {
+  /* width: 100%; */ /* Ya establecido arriba */
+  color: #ccc;
+  /* margin-bottom: 25px; */ /* Ajustado a 30px arriba */
+  text-align: left; /* O 'center' si prefieres el índice centrado */
+  padding: 10px 0; /* Añadir algo de padding vertical */
+}
+
+
+/* --- Estilos Internos de la Tabla (sin cambios de ancho) --- */
+
+table caption {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #eee;
+  padding-bottom: 15px;
+  text-align: center;
+  margin-bottom: 0px;
+  caption-side: top;
+}
+
+abbr {
+  cursor: help;
+  text-decoration: underline dotted;
+  color: #ccc;
+}
+
+td, th {
+  border: 1px solid #444; /* Líneas internas */
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  font-weight: bold;
+}
+
+td {
+  color: #ccc;
+}
+
+tr:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* --- Otros Estilos (sin cambios de ancho) --- */
+
+.sql-content-wrapper ul {
+  font-style: italic;
+  color: #bbb;
+  padding-left: 40px; /* Más indentación dentro del wrapper */
+  margin-top: 5px;
+  margin-bottom: 15px;
+  /* No necesita width: 100% explícito */
+}
+.sql-content-wrapper ul li {
+    margin-bottom: 5px;
+}
+
+#title-sect {
+  color: #ddd;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  /* No necesita width: 100% explícito */
+}
+
+.proj-desc {
+  text-align: right;
+  color: #bbb;
+  margin-bottom: 20px;
+  font-style: italic;
+  /* No necesita width: 100% explícito */
+}
+
+
+#indiceAlfabetico a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0 8px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#indiceAlfabetico a:hover {
+  color: #1a1a1a;
+  background-color: #ccc;
+  text-decoration: none;
+}

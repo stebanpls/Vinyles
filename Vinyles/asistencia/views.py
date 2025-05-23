@@ -4,19 +4,22 @@ from django.http import HttpResponse
 
 # USUARIO NORMAL
 
-def inicio(request):
-  return render(request, 'paginas/inicio.html')
+def pub_inicio(request):
+  return render(request, 'paginas/publico/pub_inicio.html')
 
-def albumes(request):
-  return render(request, 'paginas/albumes.html')
+def pub_albumes(request):
+  return render(request, 'paginas/publico/pub_albumes.html')
 
-def codigoRecuperacion(request):
-  return render(request, 'paginas/codigoRecuperacion.html')
+def pub_codigo_recuperacion(request):
+  return render(request, 'paginas/publico/pub_codigo_recuperacion.html')
 
-def ddl(request):
-  return render(request, 'paginas/ddl.html')
+def pub_ddl(request):
+  return render(request, 'paginas/publico/pub_ddl.html')
 
-def login(request):
+def pub_logOut(request):
+  return render(request, 'paginas/publico/pub_logOut.html')
+
+def pub_login(request):
     # Si es POST, se procesa la "autenticación" y se redirige al carrito
     if request.method == 'POST':
         # Recoger datos del formulario, incluidos los campos ocultos con información del álbum
@@ -33,39 +36,30 @@ def login(request):
         return redirect(carrito_url + query_string)
     
     # Para peticiones GET se muestra el formulario de login
-    return render(request, 'paginas/login.html')
+    return render(request, 'paginas/publico/pub_login.html')
 
-def loginAdministrador(request):
-  return render(request, 'paginas/loginAdministrador.html')
+def pub_login_administrador(request):
+  return render(request, 'paginas/publico/pub_login_administrador.html')
 
-def registro(request):
-  return render(request, 'paginas/registro.html')
+def pub_registro(request):
+  return render(request, 'paginas/publico/pub_registro.html')
 
-def restablecerContrasena(request):
-  return render(request, 'paginas/restablecerContrasena.html')
+def pub_restablecer_contrasena(request):
+  return render(request, 'paginas/publico/pub_restablecer_contrasena.html')
 
-def restablecerContrasenaAdmin(request):
-  return render(request, 'paginas/restablecerContrasenaAdmin.html')
+def pub_restablecer_contrasena_admin(request):
+  return render(request, 'paginas/publico/pub_restablecer_contrasena_admin.html')
 
-def sobreNosotros(request):
-  return render(request, 'paginas/sobreNosotros.html')
+def pub_sobre_nosotros(request):
+  return render(request, 'paginas/publico/pub_sobre_nosotros.html')
 
-def sobreNosotrosAdmin(request):
-  return render(request, 'paginas/sobreNosotrosAdmin.html')
+def pub_ter_con(request):
+  return render(request, 'paginas/publico/pub_ter_con.html')
 
-def sobreNosotrosCom(request):
-  return render(request, 'paginas/sobreNosotrosCom.html')
+def pub_vinilo(request):
+  return render(request, 'paginas/publico/pub_vinilo.html')
 
-def sobreNosotrosVen(request):
-  return render(request, 'paginas/sobreNosotrosVen.html')
-
-def terCon(request):
-  return render(request, 'paginas/terCon.html')
-
-def vinilo(request):
-  return render(request, 'paginas/vinilo.html')
-
-def vinilo(request):
+def pub_vinilo(request):
     album_key = request.GET.get('album', '')  # ejemplo: 'bad', 'master', etc.
 
     # Diccionario que contiene la info de cada álbum, indexada por 'album_key'
@@ -326,15 +320,15 @@ def vinilo(request):
     context = {
         'album_data': album_data
     }
-    return render(request, 'paginas/vinilo.html', context)
+    return render(request, 'paginas/publico/pub_vinilo.html', context)
 
 
 # USUARIO COMPRADOR
 
-def albumesCom(request):
-  return render(request, 'paginas/albumesCom.html')
+def com_albumes(request):
+  return render(request, 'paginas/comprador/com_albumes.html')
 
-def carrito(request):
+def com_carrito(request):
     # 1) Mini-diccionario de álbumes
     albums_info = {
         'bad':   {'title': 'Bad',   'artist': 'Michael Jackson', 'price': 105000, 'image': 'images/bad.jpg'},
@@ -359,7 +353,7 @@ def carrito(request):
                 request.session['cart'] = cart
         except ValueError:
             pass
-        return redirect('carrito')
+        return redirect('com_carrito')
 
     # 3) Si llega ?album=<clave>, añádelo
     album_key = request.GET.get('album')
@@ -368,46 +362,46 @@ def carrito(request):
         request.session['cart'] = cart
 
         # 2a) Si viene &checkout=true, enviar a checkout directo
-        if request.GET.get('checkout') == 'true':
-            return redirect('checkout')
+        if request.GET.get('com_checkout') == 'true':
+            return redirect('com_checkout')
 
         # 2b) sino, volver a la vista de carrito
-        return redirect('carrito')
+        return redirect('com_carrito')
 
     # 3) Si no hubo album en GET, renderiza normalmente
     total = sum(item['price'] for item in cart)
-    return render(request, 'paginas/carrito.html', {
+    return render(request, 'paginas/comprador/com_carrito.html', {
         'cart_items': cart,
         'total': total
     })
     return render(request, 'paginas/checkout.html')
 
-def checkout(request):
+def com_checkout(request):
     # 1) Recupera el carrito de la sesión (puede estar vacío)
     cart = request.session.get('cart', [])
 
     # 2) Si el carrito está vacío, lo mandamos de vuelta al carrito
     if not cart:
-        return redirect('carrito')
+        return redirect('com_carrito')
 
     # 3) Calcula el total
     total = sum(item['price'] for item in cart)
 
     # 4) Renderiza el template de checkout con cart_items y total
-    return render(request, 'paginas/checkout.html', {
+    return render(request, 'paginas/comprador/com_checkout.html', {
         'cart_items': cart,
         'total': total
     })
 # views.py
 
-def inicioCom(request):
-  return render(request, 'paginas/inicioCom.html')
+def com_inicio(request):
+  return render(request, 'paginas/comprador/com_inicio.html')
 
-def perfil(request):
-  return render(request, 'paginas/perfil.html')
+def com_perfil(request):
+  return render(request, 'paginas/comprador/com_perfil.html')
 
-def progresoEnvio(request):
-    return render(request, 'paginas/progresoEnvio.html')
+def com_progreso_envio(request):
+    return render(request, 'paginas/comprador/com_progreso_envio.html')
 
 def reembolsos(request):
   return render(request, 'paginas/reembolsos.html')
@@ -415,74 +409,79 @@ def reembolsos(request):
 def soporte(request):
   return render(request, 'paginas/soporte.html')
 
+def com_sobre_nosotros(request):
+  return render(request, 'paginas/comprador/com_sobre_nosotros.html')
+
 
 #USUARIO VENDEDOR
 
-def albumBadVendedor(request):
-  return render(request, 'paginas/albumBadVendedor.html')
+def ven_bad(request):
+  return render(request, 'paginas/vendedor/vinilos/ven_bad.html')
 
-def crear(request):
-  return render(request, 'paginas/crear.html')
+def ven_crear(request):
+  return render(request, 'paginas/vendedor/ven_crear.html')
 
-def notificacionesVen(request):
-  return render(request, 'paginas/notificacionesVen.html')
+def ven_notificaciones(request):
+  return render(request, 'paginas/vendedor/ven_notificaciones.html')
 
-def perfilVen(request):
-  return render(request, 'paginas/perfilVen.html')
+def ven_perfil(request):
+  return render(request, 'paginas/vendedor/ven_perfil.html')
 
-def producto(request):
-  return render(request, 'paginas/producto.html')
+def ven_producto(request):
+  return render(request, 'paginas/vendedor/ven_producto.html')
 
+def ven_sobre_nosotros(request):
+  return render(request, 'paginas/vendedor/ven_sobre_nosotros.html')
 
 # ADMINISTRADOR
 
-def administrador(request):
-  return render(request, 'paginas/Administrador/administrador.html')
+def admin_administrador(request):
+  return render(request, 'paginas/Administrador/admin_administrador.html')
 
-def notificaciones(request):
-  return render(request, 'paginas/administrador/notificaciones.html')
+def admin_notificaciones(request):
+  return render(request, 'paginas/administrador/admin_notificaciones.html')
 
-def pedido(request):
-  return render(request, 'paginas/administrador/pedido.html')
+def admin_pedido(request):
+  return render(request, 'paginas/administrador/admin_pedido.html')
 
-def producto(request):
-  return render(request, 'paginas/administrador/producto.html')
+def admin_producto(request):
+  return render(request, 'paginas/administrador/admin_producto.html')
 
-def reembolsos(request):
-  return render(request, 'paginas/administrador/reembolsos.html')
+def admin_reembolsos(request):
+  return render(request, 'paginas/administrador/admin_reembolsos.html')
 
-def usuario(request):
-  return render(request, 'paginas/Administrador/usuario.html')
+def admin_usuario(request):
+  return render(request, 'paginas/Administrador/admin_usuario.html')
 
-def verificacion(request):
-  return render(request, 'paginas/Administrador/verificacion.html')
+def admin_verificacion(request):
+  return render(request, 'paginas/Administrador/admin_verificacion.html')
 
-def adPro(request):
-  return render(request, 'paginas/administrador/adPro.html')
+def admin_adPro(request):
+  return render(request, 'paginas/administrador/admin_adPro.html')
 
-def bloq_users(request):
-  return render(request, 'paginas/administrador/bloq_users.html')
+def admin_bloq_users(request):
+  return render(request, 'paginas/administrador/admin_bloq_users.html')
 
-def generos(request):
-  return render(request, 'paginas/generos.html') # Se crea la rendererización de este archivo .HTML
+def admin_generos(request):
+  return render(request, 'paginas/admin_generos.html') # Se crea la rendererización de este archivo .HTML
 
-def gestion_users(request):
-  return render(request, 'paginas/administrador/gestion_users.html')
+def admin_gestion_users(request):
+  return render(request, 'paginas/administrador/admin_gestion_users.html')
 
-def logOut(request):
-  return render(request, 'paginas/logOut.html')
+def admin_new_users(request):
+  return render(request, 'paginas/Administrador/admin_new_users.html')
 
-def new_users(request):
-  return render(request, 'paginas/Administrador/new_users.html')
+def admin_pedido_pendiente(request):
+  return render(request, 'paginas/administrador/admin_pedido_pendiente.html')
 
-def pedido_pendiente(request):
-  return render(request, 'paginas/administrador/pedido_pendiente.html')
+def admin_pedido_realizado(request):
+  return render(request, 'paginas/administrador/admin_pedido_realizado.html')
 
-def pedido_realizado(request):
-  return render(request, 'paginas/administrador/pedido_realizado.html')
+def admin_ventas(request):
+  return render(request, 'paginas/Administrador/admin_ventas.html')
 
-def ventas(request):
-  return render(request, 'paginas/Administrador/ventas.html')
+def admin_sobre_nosotros(request):
+  return render(request, 'paginas/administrador/admin_sobre_nosotros.html')
 
 def masVendidos(request):
   return render(request, 'paginas/masvendidos.html')
@@ -491,94 +490,94 @@ def masVendidos(request):
 #VINILOS ADMINISTRADOR
 
 def bts(request):
-  return render(request, 'paginas/adminVentasVinilos/bts.html')
+  return render(request, 'paginas/administrador/ventas/bts.html')
 
 def cartiMusic(request):
-    return render(request, 'paginas/cartiMusic.html')
+    return render(request, 'paginas/administrador/ventas/cartiMusic.html')
 
 def eminemShow(request):
-  return render(request, 'paginas/adminVentasVinilos/eminemShow.html')
+  return render(request, 'paginas/administrador/ventas/eminemShow.html')
 
 def exitosJoe(request):
-    return render(request, 'paginas/exitosJoe.html')
+    return render(request, 'paginas/administrador/ventas/exitosJoe.html')
 
 def gnrAppetite(request):
-    return render(request, 'paginas/gnrAppetite.html')
+    return render(request, 'paginas/administrador/ventas/gnrAppetite.html')
 
 def master(request):
-    return render(request, 'paginas/adminmaster.html')
+    return render(request, 'paginas/administrador/ventas/master.html')
 
 def mjBad(request):
-  return render(request, 'paginas/adminVentasVinilos/mjBad.html')
+  return render(request, 'paginas/administrador/ventas/mjBad.html')
 
 def mjThriller(request):
-    return render(request, 'paginas/mjThriller.html')
+    return render(request, 'paginas/administrador/ventas/mjThriller.html')
 
 def nirvana(request):
-  return render(request, 'paginas/adminVentasVinilos/nirvana.html')
+  return render(request, 'paginas/administrador/ventas/nirvana.html')
 
 def theBeatles(request):
-  return render(request, 'paginas/adminVentasVinilos/theBeatles.html')
+  return render(request, 'paginas/administrador/ventas/theBeatles.html')
 
 
 #USUARIOS
 
 def lauraG(request):
-  return render(request, 'paginas/usuarios/lauraG.html')
+  return render(request, 'paginas/administrador/usuarios/lauraG.html')
 
 def carlosR(request):
-  return render(request, 'paginas/usuarios/carlosR.html')
+  return render(request, 'paginas/administrador/usuarios/carlosR.html')
 
 def camilaQ(request):
-  return render(request, 'paginas/usuarios/camilaQ.html')
+  return render(request, 'paginas/administrador/usuarios/camilaQ.html')
 
 def jhonM(request):
-  return render(request, 'paginas/usuarios/jhonM.html')
+  return render(request, 'paginasadministrador//usuarios/jhonM.html')
 
 def alexR(request):
-  return render(request, 'paginas/usuarios/alexR.html')
+  return render(request, 'paginas/administrador/usuarios/alexR.html')
 
 def andreaVillalobos(request):
-  return render(request, 'paginas/usuarios/andreaVillalobos.html')
+  return render(request, 'paginas/administrador/usuarios/andreaVillalobos.html')
 
 def benjaminCastro(request):
-  return render(request, 'paginas/usuarios/benjaminCastro.html')
+  return render(request, 'paginas/administrador/usuarios/benjaminCastro.html')
 
 def cristianDominguez(request):
-  return render(request, 'paginas/usuarios/cristianDominguez.html')
+  return render(request, 'paginas/administrador/usuarios/cristianDominguez.html')
 
 def angelaTorres(request):
-  return render(request, 'paginas/usuarios/angelaTorres.html')
+  return render(request, 'paginas/administrador/usuarios/angelaTorres.html')
 
 def elisaNaranjo(request):
-  return render(request, 'paginas/usuarios/elisaNaranjo.html')
+  return render(request, 'paginas/administrador/usuarios/elisaNaranjo.html')
 
 def emilioTorres(request):
-  return render(request, 'paginas/usuarios/emilioTorres.html')
+  return render(request, 'paginas/administrador/usuarios/emilioTorres.html')
 
 def andreaVillalobos2(request):
-  return render(request, 'paginas/usuarios/andreaVillalobos2.html')
+  return render(request, 'paginas/administrador/usuarios/andreaVillalobos2.html')
 
 def benjaminCastro2(request):
-  return render(request, 'paginas/usuarios/benjaminCastro2.html')
+  return render(request, 'paginas/administrador/usuarios/benjaminCastro2.html')
 
 def cristianDominguez2(request):
-  return render(request, 'paginas/usuarios/cristianDominguez2.html')
+  return render(request, 'paginas/administrador/usuarios/cristianDominguez2.html')
 
 def angelaTorres2(request):
-  return render(request, 'paginas/usuarios/angelaTorres2.html')
+  return render(request, 'paginas/administrador/usuarios/angelaTorres2.html')
 
 def elisaNaranjo2(request):
-  return render(request, 'paginas/usuarios/elisaNaranjo2.html')
+  return render(request, 'paginas/administrador/usuarios/bloqueados/elisaNaranjo2.html')
 
 def emilioTorres2(request):
-  return render(request, 'paginas/usuarios/emilioTorres2.html')
+  return render(request, 'paginas/administrador/usuarios/emilioTorres2.html')
 
 def sofiaRamirez(request):
-  return render(request, 'paginas/usuarios/sofiaRamirez.html')
+  return render(request, 'paginas/administrador/usuarios/bloqueados/sofiaRamirez.html')
 
 def esperanzaBarrera(request):
-  return render(request, 'paginas/usuarios/esperanzaBarrera.html')
+  return render(request, 'paginas/administrador/usuarios/bloqueados/esperanzaBarrera.html')
 
 def fernandoMolina(request):
-  return render(request, 'paginas/usuarios/fernandoMolina.html')
+  return render(request, 'paginas/administrador/usuarios/bloqueados/fernandoMolina.html')

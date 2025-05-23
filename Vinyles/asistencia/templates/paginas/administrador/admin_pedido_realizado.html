@@ -1,0 +1,147 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_pedido_realizado.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<section>
+    <div class="textos">
+        <h1 class="bienvenida">Pedidos realizados ✅</h1>
+        <p class="bien">📦 Todo lo que ves aquí ya fue procesado y enviado. Consulta los detalles y asegura que todo esté al día.</p>
+    </div>
+    <div class="decoracion">
+
+        <!-- 🔍 Buscador -->
+        <input type="text" id="buscador" placeholder="🔎 Buscar cliente..." class="busqueda" style="width: 100%; padding: 10px; font-size: 16px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc;">
+
+        <!-- PEDIDOS -->
+        <div id="lista-pedidos">
+
+            <!-- Pedido 1 -->
+            <div class="pedido">
+                <details>
+                    <summary>Sofía Mendoza</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Calle 45 # 19A-20</p>
+                        <p><strong>Correo electrónico:</strong> sofimdz04@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3124567890</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 2</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 2 -->
+            <div class="pedido">
+                <details>
+                    <summary>Mateo Ruiz</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Carrera 21 # 55-14</p>
+                        <p><strong>Correo electrónico:</strong> mateoruiz99@hotmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3009988776</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 1</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 3 -->
+            <div class="pedido">
+                <details>
+                    <summary>Valentina Herrera</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Avenida Norte # 105-56</p>
+                        <p><strong>Correo electrónico:</strong> valenh23@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3213344556</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 4</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 4 -->
+            <div class="pedido">
+                <details>
+                    <summary>Daniela Vargas</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Calle 72 # 30-89</p>
+                        <p><strong>Correo electrónico:</strong> danivargas98@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3137788990</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 3</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 5 -->
+            <div class="pedido">
+                <details>
+                    <summary>Tomás Ortega</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Transversal 16 # 8-45</p>
+                        <p><strong>Correo electrónico:</strong> tomasortega22@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3105566778</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 6</p>
+                    </div>
+                </details>
+            </div>
+
+        </div> <!-- FIN lista-pedidos -->
+
+        <!-- 🔍 JS buscador por nombre -->
+        <script>
+            const buscador = document.getElementById('buscador');
+            const pedidos = document.querySelectorAll('#lista-pedidos .pedido');
+
+            buscador.addEventListener('keyup', () => {
+                const texto = buscador.value.toLowerCase();
+                pedidos.forEach(pedido => {
+                    const nombre = pedido.querySelector('summary').textContent.toLowerCase();
+                    pedido.style.display = nombre.includes(texto) ? 'block' : 'none';
+                });
+            });
+        </script>
+
+    </div>
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

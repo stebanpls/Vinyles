@@ -1,0 +1,92 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #000000; /* Dark background */
+}
+
+.login-form {
+  background-color: #212121; /* Slightly lighter dark background */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  width: 400px;
+  text-align: center;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #f8f9fa; /* Light text */
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+  color: #f8f9fa;
+}
+
+.form-group input::placeholder {
+  color: #adb5bd; /* Light gray placeholder text */
+}
+
+#emailHelpId {
+  color: #e9ecef;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #e9ecef; /* Light gray label */
+}
+
+.form-group input[type="email"], /* Changed to email */
+.form-group input[type="code"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #495057; /* Darker border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #343a40; /* Dark input background */
+  color: #f8f9fa; /* Light text in input */
+}
+
+.form-group button[type="submit"] {
+  background-color: #007bff; /* Blue button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.form-group button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.login-form p {
+  margin-top: 15px;
+  color: #adb5bd; /* Light gray text */
+}
+
+.login-form a {
+  color: #64b5f6; /* Lighter blue link */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.login-form a:hover {
+  text-decoration: underline;
+  color: #90caf9; /* Even lighter blue on hover */
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo-container img {
+  width: 100px;
+  height: 100px;
+}

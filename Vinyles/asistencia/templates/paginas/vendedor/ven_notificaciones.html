@@ -1,0 +1,20 @@
+{% extends "plantillas/plantilla_vendedor.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/paginas/vendedor/style_notificaciones.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Inicio {% endblock titulo %}
+
+{% block contenido %}
+<div id="no-noti" class="hidden">
+    <p>
+        📭 No hay notificaciones
+    </p>
+</div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

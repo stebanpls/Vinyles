@@ -1,0 +1,33 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_usuario.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Administrador{% endblock titulo %}
+
+{% block contenido %} 
+
+<section class="section">
+    <div class="textos">
+        <h1 class="bienvenida">¡Control total en tus manos!</h1>
+        <p class="bien">Accede a la lista de usuarios, bloquea cuentas sospechosas y ¡asegura un entorno confiable para todos!</p>
+    </div>
+    
+    <a href="{% url 'admin_gestion_users' %}" class="nota rosita">
+        <div class= "value"> 😊 Lista <br>de Usuarios</div>
+        <h3>📋 Haz clic para gestionar Lista de usuarios.</h3>
+    </a>
+
+    <a href="{% url 'admin_bloq_users' %}" class="nota lila">
+        <div class= "value"> ❌ Usuarios bloqueados</div>
+        <h3>📋 Haz clic para gestionar Usuarios bloqueados.</h3>
+    </a>
+</section>
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}  

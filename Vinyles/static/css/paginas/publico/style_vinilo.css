@@ -1,0 +1,318 @@
+/********************************************
+ * ESTILOS PARA ALBUMESCOM
+ ********************************************/
+ .container-albumes {
+    display: flex;
+    min-height: 70vh;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Barra lateral */
+.aside-clasificacion {
+    width: 240px;
+    background-color: #111; 
+    padding: 1rem;
+    margin-right: 1rem; 
+    border-radius: 4px;
+}
+.aside-clasificacion h2 {
+    color: #fff;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+}
+.aside-clasificacion ul {
+    list-style: none;
+    padding-left: 0;
+}
+.aside-clasificacion ul li {
+    margin: 0.5rem 0;
+}
+.aside-clasificacion ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+.aside-clasificacion ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Sección de álbumes */
+.main-albumes {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #222; 
+    padding: 1rem;
+    border-radius: 4px;
+}
+.album-card {
+    background-color: #333;
+    border-radius: 4px;
+    text-align: center;
+    padding: 1rem;
+    width: 200px;
+    transition: transform 0.2s ease;
+}
+.album-card:hover {
+    transform: scale(1.02);
+}
+.album-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.album-card p {
+    margin: 0.5rem 0;
+    color: #ccc;
+}
+.album-card p strong {
+    color: #fff;
+}
+.album-card .album-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/********************************************
+ * ESTILOS PARA vinilo.html
+ ********************************************/
+.vinilo-section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #222; 
+}
+
+/* Ajustes del contenedor de la imagen y botones */
+.cuadro {
+    display: flex;
+    flex-wrap: wrap; 
+    background-color: #333;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.contenedor {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+.contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #fff;
+    margin-left: 1rem;
+    min-width: 200px;
+    max-width: 400px;
+}
+.titulo {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.precio {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+.valor {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+.button, .button2 {
+    background-color: #088888;
+    border-radius: 45px;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 30px;
+    margin-right: 10px;
+    margin-bottom: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.button:hover, .button2:hover {
+    background-color: #093939;
+}
+
+/* Ajustes de la parte de detalles */
+.detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.detalles details {
+    background-color: rgba(96, 99, 98, 0.3);
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.detalles .acor {
+    font-weight: bold;
+    color: #fff;
+}
+.detalles p {
+    color: #ccc;
+}
+.etiqueta {
+    color: #fff;
+    font-weight: bold;
+}
+.dato {
+    color: #ccc;
+}
+
+/* Ajustes de la lista de canciones */
+.lista-canciones {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+}
+.lista-canciones li {
+    margin: 0.3rem 0;
+    color: #fff;
+}
+.fa-music {
+    margin-right: 0.5rem;
+}
+
+/* Comentarios */
+.comentario {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.nombre {
+    font-weight: bold;
+    color: #fff;
+}
+.texto {
+    margin-top: 0.2rem;
+    color: #ccc;
+}
+.contenido-comentario {
+    display: flex;
+    flex-direction: column;
+}
+.botones-acciones {
+    display: flex;
+    gap: 1.2rem; /* Espacio horizontal entre botones */
+    margin-top: 1.5rem; 
+}
+
+.btn-comprar,
+.btn-agregar-carrito {
+    display: inline-block;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.8; /* Un poco de transparencia */
+    animation: pulse 3s infinite;
+}
+
+.btn-comprar {
+    background-color: rgba(240, 165, 0, 0.7); /* Un tono amarillo con transparencia */
+    color: #000; 
+}
+
+.btn-agregar-carrito {
+    background-color: rgba(8, 136, 136, 0.7); /* Un tono turquesa translúcido */
+    color: #fff;
+}
+
+/* Efecto hover un poco distinto */
+.btn-comprar:hover,
+.btn-agregar-carrito:hover {
+    opacity: 1;
+    transform: scale(1.07); /* un poco más intenso que en la animación */
+}
+
+.botones-acciones {
+    display: flex;
+    gap: 1.2rem; /* Espacio horizontal entre botones */
+    margin-top: 1.5rem; 
+}
+
+.btn-comprar,
+.btn-agregar-carrito {
+    display: inline-block;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.9; /* Un poco de transparencia */
+}
+
+.btn-comprar {
+    background-color: #ffffff; /* Un tono amarillo */
+    color: #000; 
+}
+
+.btn-agregar-carrito {
+    background-color: #ffffff; /* Un tono turquesa */
+    color: #000000;
+}
+
+.btn-comprar:hover,
+.btn-agregar-carrito:hover {
+    opacity: 1.0;          /* Aumenta la opacidad */
+    transform: scale(1.05); /* Efecto leve de zoom */
+    
+}
+
+/* Regla para agrupar la etiqueta "Precio:" y el valor en una misma línea */
+.precio-valor {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+.etiqueta-precio {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}

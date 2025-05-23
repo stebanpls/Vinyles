@@ -1,0 +1,47 @@
+{% extends "plantillas/plantilla_comprador.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/paginas/comprador/style_perfil.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Inicio {% endblock titulo %}
+
+{% block contenido %}
+<div class="profile-container">
+    <div class="profile-picture-container">
+        <img src="{% static 'images/perfil.jpg' %}" alt="Profile Picture" class="profile-picture">
+    </div>
+    <h2 class="user-name">Usuario: {{ user.first_name }} {{ user.last_name }}</h2>
+    <div class="profile-info">
+        <div class="info-item">
+            <label>Email:</label>
+            <span>{{ user.email }}</span>
+        </div>
+        <div class="info-item">
+            <label>Celular:</label>
+            <span>{{ user.celular|default:"-" }}</span>
+        </div>
+        <div class="info-item">
+            <label>Géneros Favoritos:</label>
+            <span>{{ user.phone_number|default:"-" }}</span>
+        </div>
+        <div class="info-item">
+            <label>Historial de Compra:</label>
+            <span>{{ user.historial|default:"-" }}</span>
+            <a href="{% static 'images/music.css' %}"></a>
+        </div>
+    </div>
+    <div class="profile-buttons">
+        <a href="{% url 'ven_producto' %}" class="btn btn-primary">Cambiar a Vendedor</a>
+        <!--
+        <a href="#" class="btn btn-primary">Editar Perfil</a>
+        -->
+        <a href="{% url 'pub_logOut' %}" class="btn btn-danger">Cerrar Sesión</a>
+    </div>
+  </div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

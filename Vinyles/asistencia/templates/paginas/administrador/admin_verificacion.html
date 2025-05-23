@@ -1,0 +1,155 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_verificacion.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+    <section class="section">
+        <div class="textos">
+            <h1 class="bienvenida"> Verificación de productos</h1>
+            <p class="bien">Verificación en curso 🧐. Asegúrate de que todo esté en orden antes de publicarlo.</p>
+        </div>
+        <div class="usuariosbloque">
+            <!-- 🔍 Barra de búsqueda -->
+            <input type="text" id="buscador" placeholder="🔎Buscar usuario..." class="busqueda">
+        
+        
+            <ul class="usuarios">
+                <!-- Usuario 1 -->
+                <li>
+                    <div class="usuario-info">
+                        <div class="avatar">
+                            <img src="{% static 'images/fotosusuario/andreaVillalobos.jpg' %}" alt="Andrea Villalobos"
+                                onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                        </div>
+                        <a href="{% url 'andreaVillalobos'%}" class="nombre-usuario">Andrea Villalobos</a>
+                    </div>
+                    
+                    <div class="compra"><a href ="{% url 'admin_adPro'%}">
+                        <img src="{% static 'images/music.jpg' %}" alt="MUSIC - Playboi Carti">
+                        <div>
+                            <p style="color:white">MUSIC - Playboi Carti</p></a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Usuario 2 -->
+                <li>
+                    <div class="usuario-info">
+                        <div class="avatar">
+                            <img src="{% static 'images/fotosusuario/benjaminCastro.jpg' %}" alt="benjaminCastro"
+                                onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                        </div>
+                        <a href="{% url 'benjaminCastro'%}" class="nombre-usuario">Benjamin Castro</a>
+                    </div>
+                    
+                    <div class="compra"><a href ="{% url 'admin_adPro'%}">
+                        <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                        <div>
+                            <p style="color:white">Abbey Road - The Beatles</p></a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Usuario 3 -->
+                <li>
+                    <div class="usuario-info">
+                        <div class="avatar">
+                            <img src="{% static 'images/fotosusuario/cristianDominguez.jpg' %}" alt="cristianDominguez"
+                                onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                        </div>
+                        <a href="{% url 'cristianDominguez'%}" class="nombre-usuario">Cristian Dominguez</a>
+                    </div>
+                    
+                    <div class="compra"><a href ="{% url 'admin_adPro'%}">
+                        <img src="{% static 'images/nirvana in utero.jpg' %}" alt="In Utero - Nirvana">
+                        <div>
+                            <p style="color:white">In Utero - Nirvana</p></a>
+                        </div>
+                        
+                    </div>
+                </li>
+
+                <!-- Usuario 4 -->
+                <li>
+                    <div class="usuario-info">
+                        <div class="avatar">
+                            <img src="{% static 'images/fotosusuario/angelaTorres.jpg' %}" alt="angelaTorres"
+                                onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                        </div>
+                        <a href="{% url 'angelaTorres'%}" class="nombre-usuario">Angela Torres</a>
+                    </div>
+                    
+                    <div class="compra"><a href ="{% url 'admin_adPro'%}">
+                        <img src="{% static 'images/jazz.jpg' %}" alt="Undercurrent - Bill Evans & Jim Hall">
+                        <div>
+                            <p style="color:white">Undercurrent - Bill Evans & Jim Hall</p></a>
+                        </div>
+                        
+                    </div>
+                </li>
+
+                <!-- Usuario 5 -->
+                <li>
+                    <div class="usuario-info">
+                        <div class="avatar">
+                            <img src="{% static 'images/fotosusuario/elisaNaranjo.jpg' %}" alt="elisaNaranjo"
+                                onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                        </div>
+                        <a href="{% url 'elisaNaranjo'%}" class="nombre-usuario">Elisa Naranjo</a>
+                    </div>
+                    
+                    <div class="compra"><a href ="{% url 'admin_adPro'%}">
+                        <img src="{% static 'images/thriller.jpg' %}" alt="Thriller - Michael Jackson">
+                        <div>
+                            <p style="color:white">Thriller - Michael Jackson</p></a>
+                        </div>
+                        
+                    </div>
+                </li>
+
+                <!-- Usuario 6 -->
+                <li>
+                    <div class="usuario-info">
+                        <div class="avatar">
+                            <img src="{% static 'images/fotosusuario/emilioTorres.jpg' %}" alt="emilioTorres"
+                                onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                        </div>
+                        <a href="{% url 'emilioTorres'%}" class="nombre-usuario">Emilio Torres</a>
+                    </div>
+                    
+                    <div class="compra"><a href ="{% url 'admin_adPro'%}">
+                        <img src="{% static 'images/destruction.jpg' %}" alt="Appetite for Destruction - Guns 'n' Roses">
+                        <div>
+                            <p style="color:white">Appetite for Destruction - Guns N' Roses</p></a>
+                        </div>
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        const input = document.getElementById('buscador');
+        const usuarios = document.querySelectorAll('.usuarios li');
+
+        input.addEventListener('keyup', () => {
+            const filtro = input.value.toLowerCase();
+
+            usuarios.forEach(usuario => {
+                const nombre = usuario.textContent.toLowerCase();
+                usuario.style.display = nombre.includes(filtro) ? 'flex' : 'none';
+            });
+        });
+    </script>
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

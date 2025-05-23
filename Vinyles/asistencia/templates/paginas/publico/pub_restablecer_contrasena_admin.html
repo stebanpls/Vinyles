@@ -1,0 +1,29 @@
+{% extends "plantillas/plantilla_publico.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/paginas/publico/style_restablecer_contrasena_admin.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Restablecer {% endblock titulo %}
+
+{% block contenido %}
+  <div class="login-container">
+    <div class="login-form">
+        <div class="logo-container">
+            <img src="{% static 'images/vinilo.ico' %}" alt="Logo">
+        </div>
+        <h2>Restablecer tu Contraseña</h2>
+        <p>
+          Contactate con IT para el restablecimiento de tu contraseña.
+        </p>
+        <button type="submit" class="btn btn-primary">
+          <a href="{% url 'loginAdministrador' %}">Regresar</a>
+        </button>
+    </div>
+  </div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

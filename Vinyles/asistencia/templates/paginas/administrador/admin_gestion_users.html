@@ -1,0 +1,137 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_gestion_users.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+    <section class="section">
+        <div class="textos">
+            <h1 class="bienvenida">Usuarios en la plataforma</h1>
+            <p class="bien">Gestiona todos los perfiles de los usuarios para un control más efectivo. 👤</p>
+        </div>
+        <div class="usuariosbloque">
+            <!-- 🔍 Barra de búsqueda -->
+            <input type="text" id="buscador" placeholder="🔎Buscar usuario..." class="busqueda">
+        
+        
+            <ul class="usuarios">
+                <!-- Usuario 1 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/lauragomez.jpg' %}" alt="lauraG"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'lauraG' %}" class="nombre-usuario">Laura Gomez</a>
+                </li>
+
+                <!-- Usuario 2 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/carlosR.jpg' %}" alt="carlos Ruiz"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: pink;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'carlosR' %}" class="nombre-usuario">Carlos Ruiz</a>
+                </li>
+
+                <!-- Usuario 3 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/camilaQ.jpg' %}" alt="CamilaQ"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: darkred;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'camilaQ' %}" class="nombre-usuario">Camila Quintero</a>
+                </li>
+
+                <!-- Usuario 4 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/jhonM.jpg' %}" alt="jhonM"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: gray;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'jhonM' %}" class="nombre-usuario">Jhon Martinez</a>
+                </li>
+
+                <!-- Usuario 5 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/alexR.jpg' %}" alt="alexR"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: deepskyblue;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'alexR' %}" class="nombre-usuario">AlexRojas</a>
+                </li>
+
+                <!-- Usuario 6 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/andreaVillalobos.jpg' %}" alt="andreaVillalobos"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: blueviolet;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'andreaVillalobos2' %}" class="nombre-usuario">Andrea Villalobos</a>
+                </li>
+
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/angelaTorres.jpg' %}" alt="angelaTorres"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: blueviolet;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'angelaTorres2' %}" class="nombre-usuario">Angela Torres</a>
+                </li>
+
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/benjaminCastro.jpg' %}" alt="benjaminCastro"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: blueviolet;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'benjaminCastro2' %}" class="nombre-usuario">Benjamin Castro</a>
+                </li>
+
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/cristianDominguez.jpg' %}" alt="cristianDominguez"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: blueviolet;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'cristianDominguez2' %}" class="nombre-usuario">Cristian Dominguez</a>
+                </li>
+
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/elisaNaranjo.jpg' %}" alt="elisaNaranjo"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: blueviolet;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'elisaNaranjo2' %}" class="nombre-usuario">Elisa Naranjo</a>
+                </li>
+
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/emilioTorres.jpg' %}" alt="emilioTorres"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: blueviolet;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'emilioTorres2' %}" class="nombre-usuario">Emilio Torres</a>
+                </li>
+            </ul>
+        </div>  
+    </section>
+    <script>
+        const input = document.getElementById('buscador');
+        const usuarios = document.querySelectorAll('.usuarios li');
+
+        input.addEventListener('keyup', () => {
+            const filtro = input.value.toLowerCase();
+
+            usuarios.forEach(usuario => {
+                const nombre = usuario.textContent.toLowerCase();
+                usuario.style.display = nombre.includes(filtro) ? 'flex' : 'none';
+            });
+        });
+    </script>
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

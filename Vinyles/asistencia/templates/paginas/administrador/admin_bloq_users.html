@@ -1,0 +1,70 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_bloq_users.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+    <section class="section">
+        <div class="textos">
+            <h1 class="bienvenida">Usuarios bloqueados</h1>
+            <p class="bien">Revisión de cuentas bloqueadas – Mantén el orden en la plataforma.</p>
+        </div>
+        <div class="usuariosbloque">
+            <!-- 🔍 Barra de búsqueda -->
+            <input type="text" id="buscador" placeholder="🔎Buscar usuario..." class="busqueda">
+        
+        
+            <ul class="usuarios">
+                <!-- Usuario 1 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/sofiaRamirez.jpg' %}" alt="sofia Ramirez"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: black;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'sofiaRamirez'%}" class="nombre-usuario">Sofia Ramirez</a>
+                </li>
+
+                <!-- Usuario 2 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/esperanzaBarrera.jpg' %}" alt="esperanza Barrera"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: pink;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'esperanzaBarrera' %}" class="nombre-usuario">Esperanza Barrera</a>
+                </li>
+
+                <!-- Usuario 3 -->
+                <li>
+                    <div class="avatar">
+                        <img src="{% static 'images/fotosusuario/fernandoMolina.jpg' %}" alt="fernandoMolina"
+                            onerror="this.outerHTML='<div class=\'avatar\' style=\'background-color: darkred;\'><i class=\'fa-solid fa-user\'></i></div>'">
+                    </div>
+                    <a href="{% url 'fernandoMolina'%}" class="nombre-usuario">Fernando Molina </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        const input = document.getElementById('buscador');
+        const usuarios = document.querySelectorAll('.usuarios li');
+
+        input.addEventListener('keyup', () => {
+            const filtro = input.value.toLowerCase();
+
+            usuarios.forEach(usuario => {
+                const nombre = usuario.textContent.toLowerCase();
+                usuario.style.display = nombre.includes(filtro) ? 'flex' : 'none';
+            });
+        });
+    </script>
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

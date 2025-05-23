@@ -1,0 +1,52 @@
+{% extends 'plantillas/plantilla_comprador.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/paginas/comprador/style_carrito.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %}Vinyles – Mi carrito{% endblock titulo %}
+
+{% block contenido %}
+<div class="carrito-container">
+    <h2>Mi carrito</h2>
+
+    {% if cart_items %}
+    <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <img 
+            src="{% static item.image %}" 
+            alt="{{ item.title }}" 
+            class="cart-item-image">
+
+            <div class="cart-item-details">
+            <h4 class="cart-item-title">{{ item.title }}</h4>
+            <p class="cart-item-artist">{{ item.artist }}</p>
+            <p class="cart-item-price">COP ${{ item.price }}</p>
+            </div>
+
+            <a 
+            href="{% url 'com_carrito' %}?remove={{ forloop.counter0 }}" 
+            class="btn btn-remove-item">
+            🗑 Eliminar
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cart-total">
+        <p>Total: <span>COP ${{ total }}</span></p>
+    </div>
+
+    <a href="{% url 'com_checkout' %}" class="btn btn-primary btn-checkout">
+        Ir a pagar
+    </a>
+    {% else %}
+    <p class="empty-cart">Tu carrito está vacío.</p>
+    {% endif %}
+</div>
+{% endblock contenido %}
+
+{% block pie %}{% endblock pie %}
+

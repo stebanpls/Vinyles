@@ -1,0 +1,76 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/Style_notificaciones.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Apolo - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<section>
+    <div class="textos">
+        <h1 class="bienvenida">Notificaciones</h1>
+        <p class="bien">📢 Notificaciones activas — No dejes que se te pase nada importante.</p>
+    </div>
+
+    <div class="contenido">
+        <div id="notificaciones">
+            <details class="noti">
+                <summary>🛠️ Nueva actualización disponible</summary>
+                <p>
+                    La versión 2.1 del sistema ya está lista. Incluye mejoras en la seguridad y el rendimiento.
+                </p>
+                <button class="delete-btn" title="Eliminar notificación">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#dc3545" viewBox="0 0 24 24">
+                        <path d="M3 6h18v2H3zm2 3h14v13H5zM8 10v9h2v-9H8zm6 0v9h2v-9h-2z"/>
+                    </svg>
+                </button>
+            </details>
+
+            <details class="noti">
+                <summary>📩 Tienes un nuevo mensaje del equipo técnico</summary>
+                <p>
+                    El equipo reporta que el servidor estuvo inestable esta mañana, pero ya fue solucionado.
+                </p>
+                <button class="delete-btn" title="Eliminar notificación">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#dc3545" viewBox="0 0 24 24">
+                        <path d="M3 6h18v2H3zm2 3h14v13H5zM8 10v9h2v-9H8zm6 0v9h2v-9h-2z"/>
+                    </svg>
+                </button>
+            </details>
+        </div>
+
+        <div id="no-noti" class="hidden">
+            <p>
+                📭 No hay notificaciones
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function checkNotificaciones() {
+        const notis = document.querySelectorAll('.noti');
+        const mensaje = document.getElementById('no-noti');
+            if (notis.length === 0) {
+                mensaje.classList.remove('hidden');
+            }
+    }
+
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const noti = btn.closest('details');
+            noti.remove();
+            checkNotificaciones();
+        });
+    });
+</script>
+
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

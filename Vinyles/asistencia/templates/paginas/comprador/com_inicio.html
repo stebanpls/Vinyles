@@ -1,0 +1,132 @@
+{% extends "plantillas/plantilla_comprador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/comprador/style_inicio.css' %}">
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> #}
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - La Música {% endblock titulo %}
+
+{% block contenido %}
+    <section class="hero-banner-section">
+        <div class="hero-banner">
+            <img src="{% static 'images/master.jpg' %}" alt="Featured Album - Master of Puppets">
+            {# Optional text overlay
+            <div class="hero-text">
+                <h2>Bienvenido!</h2>
+                <p>Sientete libre de mirar algunos de los mejores albumes de la historia. Y como no, comprar alguno de estas piezas maestras.</p>
+                <a href={% url 'com_albumes' %} class="btn btn-primary">Empezar mi compra!</a>
+            </div>
+            #}
+        </div>
+    </section>
+
+    <section class="product-grid-section">
+        <h2 class="section-title">Novedades</h2>
+        <div class="product-grid">
+
+            {# Product Card 1 #}
+            <div class="product-card">
+                <a href="#" class="product-image-link"> {# Link to product detail page #}
+                    <img src="{% static 'images/lonely.jpg' %}" alt="Sgt. Pepper's Lonely Hearts Club Band" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-title">Sgt. Pepper's Lonely Hearts Club Band</a></h3>
+                    <p class="product-artist">The Beatles</p>
+                    {# Add Price - You'd typically get this from context data #}
+                    <p class="product-price">$95.000</p>
+                    <a href="{% url 'com_carrito' %}?album=lonely">
+                    <button class="btn btn-add-to-cart">
+                        Agregar al carrito</button> {# Or use an icon button #}
+                    </a>
+                </div>
+            </div>
+
+            {# Product Card 2 #}
+            <div class="product-card">
+                <a href="#" class="product-image-link">
+                    <img src="{% static 'images/thriller.jpg' %}" alt="Thriller" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-title">Thriller</a></h3>
+                    <p class="product-artist">Michael Jackson</p>
+                    <p class="product-price">$110.000</p>
+                    <a href="{% url 'com_carrito' %}?album=thriller">
+                    <button class="btn btn-add-to-cart">
+                        Agregar al carrito</button>
+                </a>
+                </div>
+            </div>
+
+            {# Product Card 3 #}
+            <div class="product-card">
+                <a href="#" class="product-image-link">
+                    <img src="{% static 'images/joe.jpg' %}" alt="Grandes Exitos - Joe Arroyo" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-title">Grandes Exitos</a></h3>
+                    <p class="product-artist">Joe Arroyo</p>
+                    <p class="product-price">$80.000</p>
+                    <a href="{% url 'com_carrito' %}?album=joe">
+                    <button class="btn btn-add-to-cart">
+                        Agregar al carrito</button>
+                    </a>
+                </div>
+            </div>
+
+            {# Product Card 4 #}
+            <div class="product-card">
+                <a href="#" class="product-image-link">
+                    <img src="{% static 'images/bad.jpg' %}" alt="Bad" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-title">Bad</a></h3>
+                    <p class="product-artist">Michael Jackson</p>
+                    <p class="product-price">$105.000</p>
+                    <a href="{% url 'com_carrito' %}?album=bad">
+                    <button class="btn btn-add-to-cart">
+                        Agregar al carrito</button>
+                    </a>
+                </div>
+            </div>
+
+            {# Product Card 5 #}
+            <div class="product-card">
+                <a href="#" class="product-image-link">
+                    <img src="{% static 'images/destruction.jpg' %}" alt="Appetite for Destruction" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-title">Appetite for Destruction</a></h3>
+                    <p class="product-artist">Guns N' Roses</p>
+                    <p class="product-price">$120.000</p>
+                    <a href="{% url 'com_carrito' %}?album=destruction">
+                        <button class="btn btn-add-to-cart">
+                    Agregar al carrito</button>
+                    </a>
+                    
+                </div>
+            </div>
+
+            {# Product Card 6 #}
+            <div class="product-card">
+                <a href="#" class="product-image-link">
+                    <img src="{% static 'images/music.jpg' %}" alt="MUSIC" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-title">MUSIC</a></h3>
+                    <p class="product-artist">Playboi Carti</p>
+                    <p class="product-price">$90.000</p>
+                    <a href="{% url 'com_carrito' %}?album=music">
+                    <button class="btn btn-add-to-cart">
+                        Agregar al carrito</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock contenido %}
+
+{% block pie %}
+    
+{% endblock pie %}

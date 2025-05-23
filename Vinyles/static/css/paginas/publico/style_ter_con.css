@@ -1,0 +1,81 @@
+/* static/css/styleTerCon.css */
+
+/* Estilo general para la sección de términos y condiciones */
+.terminos-condiciones {
+    max-width: 800px; /* O el ancho que prefieras */
+    margin: 2rem auto; /* Centrar y añadir margen superior/inferior */
+    padding: 1.5rem;
+    background-color: #ffffff; /* Fondo blanco (ajustar si tu tema es oscuro) */
+    border: 1px solid #e0e0e0; /* Borde sutil (ajustar color) */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave (opcional) */
+    font-family: var(--font-principal, sans-serif); /* Usa la fuente principal de tu proyecto o define una */
+    color: var(--color-texto-principal, #333); /* Usa el color de texto principal */
+    line-height: 1.6; /* Espaciado de línea para legibilidad */
+}
+
+/* Título principal de la página */
+.terminos-condiciones h2 {
+    color: var(--color-titulo, #2c3e50); /* Color para títulos (ajustar) */
+    font-size: 1.8rem; /* Tamaño del título principal (ajustar) */
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-primario, #3498db); /* Línea decorativa (ajustar color) */
+    padding-bottom: 0.5rem;
+}
+
+/* Fecha de actualización */
+.terminos-condiciones .fecha-actualizacion {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario, #7f8c8d); /* Color más suave (ajustar) */
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* Subtítulos (h3) */
+.terminos-condiciones h3 {
+    color: var(--color-subtitulo, #34495e); /* Color para subtítulos (ajustar) */
+    font-size: 1.4rem; /* Tamaño de subtítulos (ajustar) */
+    margin-top: 2rem; /* Espacio antes de cada sección */
+    margin-bottom: 0.8rem;
+}
+
+/* Párrafos */
+.terminos-condiciones p {
+    margin-bottom: 1rem; /* Espacio entre párrafos */
+    text-align: justify; /* Justificar texto para apariencia formal (opcional) */
+}
+
+/* Enlaces dentro del texto */
+.terminos-condiciones a {
+    color: var(--color-enlace, #3498db); /* Color de enlaces (ajustar) */
+    text-decoration: none; /* Quitar subrayado por defecto */
+    font-weight: bold;
+}
+
+.terminos-condiciones a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+    color: var(--color-enlace-hover, #2980b9); /* Color de enlace al pasar el ratón (ajustar) */
+}
+
+/* Estilo específico para el enlace de reembolsos (opcional) */
+.terminos-condiciones .link-reembolsos {
+    /* Puedes añadir estilos específicos si quieres que este enlace destaque */
+    /* Por ejemplo: background-color: #f0f0f0; padding: 2px 5px; border-radius: 3px; */
+}
+
+/* --- Variables CSS (Ejemplo) --- */
+/* Si usas variables CSS en tu proyecto, úsalas aquí. Si no, reemplaza */
+/* var(--nombre-variable, valor-por-defecto) con tus valores específicos. */
+/* Ejemplo de cómo podrías definir variables en tu CSS principal o en :root {} */
+/*
+:root {
+    --font-principal: 'Arial', sans-serif;
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #777777;
+    --color-titulo: #1a1a1a;
+    --color-subtitulo: #4a4a4a;
+    --color-primario: #007bff;
+    --color-enlace: #007bff;
+    --color-enlace-hover: #0056b3;
+}
+*/

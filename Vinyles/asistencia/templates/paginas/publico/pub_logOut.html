@@ -1,0 +1,22 @@
+{% extends "plantillas/plantilla_publico.html" %}
+{% load static %}
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'css/paginas/publico/style_logOut.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Adiós {% endblock titulo %}
+
+{% block contenido %}
+<div class="logout-container">
+    <div class="logout-message">
+        <a href="{% url 'pub_inicio' %}">
+            ✅ Sesión cerrada con éxito
+        </a>
+    </div>
+</div>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

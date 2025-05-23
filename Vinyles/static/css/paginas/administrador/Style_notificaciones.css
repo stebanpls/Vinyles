@@ -1,0 +1,72 @@
+section{
+  width: 100%;
+  height: auto;
+  padding: 40px 40px 400px 40px;
+
+}
+
+.contenido {
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+details {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem 3rem 1rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #053c76;
+  cursor: pointer;
+}
+
+details[open] {
+  background-color: #e9f5ff;
+  border-color: #b6e0ff;
+}
+
+details p {
+  margin-top: 0.8rem;
+  color: #444;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+}
+
+#no-noti {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.hidden {
+  display: none;
+}
+
+.textos {
+  width: 100%;
+  margin-bottom: 1rem;
+  color :aliceblue;
+}

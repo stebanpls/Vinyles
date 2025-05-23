@@ -1,0 +1,92 @@
+{% extends 'plantillas/plantilla_publico.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/publico/style_reembolsos.css' %}">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Política y Solicitud de Reembolso {% endblock titulo %}
+
+{% block contenido %}
+<section class="reembolso-section">
+    <div class="reembolso-container">
+        <h2>Política y Solicitud de Reembolso</h2>
+
+        <p>
+            En Vinyles, tu satisfacción es importante. Entendemos que a veces las cosas no salen como se esperan. Puedes solicitar una devolución y reembolso si has recibido un producto:
+        </p>
+        <ul>
+            <li>Defectuoso (ej: disco rayado, salto de pista no inherente a una edición antigua).</li>
+            <li>Dañado durante el transporte (ej: carátula rota, vinilo partido).</li>
+            <li>Incorrecto (recibiste un álbum o edición diferente al que pediste).</li>
+        </ul>
+        <p>
+            Te recomendamos revisar nuestra <a href="{% url 'terCon' %}#politica-reembolsos" target="_blank">Política completa de Reembolsos y Devoluciones</a> (sección 6 de nuestros Términos y Condiciones) para conocer los plazos (generalmente 7 días desde la recepción), condiciones y el proceso detallado.
+        </p>
+        <p>
+            Para iniciar el proceso, por favor completa el siguiente formulario con la información requerida. Nos pondremos en contacto contigo por correo electrónico en un plazo de 3 días hábiles para indicarte los siguientes pasos.
+        </p>
+
+        <hr class="reembolso-divider">
+
+        <div class="reembolso-form-wrapper">
+            <h3>Formulario de Solicitud de Reembolso</h3>
+            {# Asegúrate de tener una URL y vista en Django para manejar esto #}
+            <form action="#" method="post" class="reembolso-form" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {# --- Campos del Formulario --- #}
+                <div class="form-group mb-3">
+                    <label for="nombre" class="form-label">Nombre completo: <span class="required">*</span></label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre y apellidos" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Correo electrónico de contacto: <span class="required">*</span></label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="El correo asociado a tu compra o donde contactarte" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="orden" class="form-label">Número de orden/pedido: <span class="required">*</span></label>
+                    <input type="text" id="orden" name="orden" class="form-control" placeholder="Lo encontrarás en tu email de confirmación (Ej: VNL-12345)" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="motivo" class="form-label">Motivo detallado de la solicitud: <span class="required">*</span></label>
+                    <textarea id="motivo" name="motivo" class="form-control motivo-textarea" rows="5" placeholder="Describe claramente el problema con el producto (ej: 'El disco llegó con una grieta en el lado B', 'La carátula está doblada en una esquina', 'Pedí la versión X y recibí la Y'). Cuantos más detalles, mejor." required></textarea>
+                </div>
+
+                {# Opcional pero muy recomendable: Carga de fotos #}
+                <div class="form-group mb-3">
+                    <label for="fotos" class="form-label">Adjuntar fotos (Opcional pero recomendado):</label>
+                    <input type="file" id="fotos" name="fotos" class="form-control" multiple accept="image/jpeg, image/png, image/gif">
+                    <small class="form-text text-muted">Adjunta fotos claras del defecto o daño si es posible. Ayuda a agilizar el proceso.</small>
+                </div>
+
+                {# --- Botón de Envío --- #}
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar Solicitud</button>
+                </div>
+            </form>
+        </div>
+
+        {# --- Mensajes de Feedback --- #}
+        {% if mensaje %}
+            <div class="alert alert-success mt-4" role="alert"> {# Usa clases de alerta Bootstrap si están disponibles #}
+                {{ mensaje }}
+            </div>
+        {% endif %}
+        {% if error_mensaje %} {# Para mostrar errores si la vista los envía #}
+            <div class="alert alert-danger mt-4" role="alert">
+                {{ error_mensaje }}
+            </div>
+        {% endif %}
+
+    </div>{# Fin de reembolso-container #}
+</section>{# Fin de reembolso-section #}
+{% endblock contenido %}
+
+{% block pie %}
+    {# Puedes dejarlo vacío para usar el de plantilla.html o añadir algo específico #}
+    {# {{ block.super }} #} {# Descomenta si quieres añadir al pie de página base #}
+{% endblock pie %}

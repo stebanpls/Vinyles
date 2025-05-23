@@ -1,0 +1,191 @@
+/* --- Estructura General --- */
+.reembolso-section {
+  padding: 3rem 1rem;
+  background-color: var(--vinyles-color-background);
+  font-family: var(--vinyles-font-main);
+  color: var(--vinyles-color-text);
+  line-height: 1.6;
+}
+
+.reembolso-container {
+  max-width: 800px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrar */
+  padding: 2rem 2.5rem;
+  background-color: var(--vinyles-color-container-bg);
+  border: 1px solid var(--vinyles-color-border);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Títulos y Texto --- */
+.reembolso-container h2 {
+  color: var(--vinyles-color-secondary);
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vinyles-color-border);
+}
+
+.reembolso-container h3 {
+  color: var(--vinyles-color-secondary);
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.reembolso-container p,
+.reembolso-container ul {
+  margin-bottom: 1rem;
+}
+
+.reembolso-container ul {
+  list-style: disc;
+  padding-left: 25px; /* Indentación para la lista */
+}
+
+.reembolso-container a {
+  color: var(--vinyles-color-link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.reembolso-container a:hover {
+  color: var(--vinyles-color-link-hover);
+  text-decoration: underline;
+}
+
+.reembolso-divider {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--vinyles-color-border);
+}
+
+/* --- Formulario --- */
+.reembolso-form-wrapper {
+  margin-top: 1rem;
+}
+
+/* Estilos base si NO usas Bootstrap o para sobrescribir */
+.reembolso-form .form-group {
+  margin-bottom: 1.25rem; /* Espacio entre campos (si no usas mb-3) */
+}
+
+.reembolso-form .form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600; /* Etiquetas en negrita */
+  font-size: 0.95rem;
+}
+
+.reembolso-form .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  color: var(--vinyles-color-text);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid var(--vinyles-input-border);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.reembolso-form .form-control:focus {
+  border-color: var(--vinyles-input-focus-border);
+  outline: 0;
+  box-shadow: var(--vinyles-input-focus-shadow);
+}
+
+.reembolso-form textarea.form-control {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Estilo para el input de archivo (puede variar entre navegadores) */
+.reembolso-form input[type="file"].form-control {
+  padding: 0.4rem 0.9rem; /* Ajustar padding para file input */
+}
+
+/* Indicador de campo requerido */
+.reembolso-form .required {
+  color: var(--vinyles-color-required);
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+/* Texto de ayuda debajo de los campos */
+.reembolso-form .form-text {
+  font-size: 0.85rem;
+  color: #6c757d; /* Color grisáceo */
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* --- Botón (Estilos base/override) --- */
+.reembolso-form .btn {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.reembolso-form .btn-primary {
+  color: #fff;
+  background-color: var(--vinyles-color-primary);
+  border-color: var(--vinyles-color-primary);
+}
+
+.reembolso-form .btn-primary:hover {
+  color: #fff;
+  background-color: var(--vinyles-color-link-hover); /* Usar el color hover del enlace */
+  border-color: darken(var(--vinyles-color-primary), 10%); /* Necesitarías un color más oscuro definido */
+}
+
+.reembolso-form .btn-lg { /* Estilo para botón grande */
+  padding: 0.75rem 1.5rem;
+  font-size: 1.15rem;
+  border-radius: 0.3rem;
+}
+
+/* --- Alertas (Estilos base/override) --- */
+.alert {
+  position: relative;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  margin-top: 1.5rem; /* Espacio antes del mensaje */
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* --- Utilidades (Si no usas Bootstrap) --- */
+.mt-4 { margin-top: 1.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.text-center { text-align: center !important; }
+.text-muted { color: #6c757d !important; }

@@ -1,0 +1,159 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_adpro.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<div class="textos">
+    <h1 class="bienvenida">Gestion de productos</h1>
+    <p class="bien">Edita la información de tus productos. Actualiza detalles, precios y más, directamente desde esta sección.</p>
+</div>
+<section>
+    
+    <div class="guardar-global">
+        <div class = "Botonsito"><button onclick="guardarCambios()" id="guardarBtn" class="button-guardar">Guardar</button></div>
+        <button onclick="activarEdicion()" class="button-editar">Editar información</button>
+    </div>
+    <div class = "cuadro">
+        <div class ="contenedor">
+            <img src="{%static 'images/rap.jpg' %}" alt="Snow" >
+        </div>
+        
+        <div class = "info">
+            <div class= "titulo">
+                <p class="editable" contenteditable="false">The Eminem Show</p>
+            </div>
+            <div class = "precio">
+                <p>Precio:</p>
+            </div>
+            <div class = "valor">
+                <p class="editable" contenteditable="false">$180.000</p>
+            </div>
+            <div>
+                <button class="button" onclick="marcarNoDisponible()">No disponible</button>
+                <div id="mensajeNoDisponible" class = "NoDis"></div>
+            </div>
+            <div>
+                <button class="button2" onclick="Disponible()">Disponible</button>
+                <div id="Disponible" class = "Dis"></div>
+            </div>
+        </div>
+    </div>
+    <div class="detalles">
+        <div class="album">
+            <details>
+                <summary class="acor">Información del álbum</summary>
+                <p><span class="etiqueta">Género:</span><span class="dato editable" contenteditable="false">Hip Hop, Rap</span></p>
+    <p><span class="etiqueta">Lanzamiento:</span><span class="dato editable" contenteditable="false">26 de mayo de 2002</span></p>
+    <p><span class="etiqueta">Sello discográfico:</span><span class="dato editable" contenteditable="false">Aftermath, Interscope</span></p>
+    <p><span class="etiqueta">Productor(es):</span><span class="dato editable" contenteditable="false">Dr. Dre, Eminem, Jeff Bass</span></p>
+            </details>
+        </div>
+    
+        <div class="artista">
+            <details>
+                <summary class="acor">Información del artista</summary>
+                <p class="editable" contenteditable="false">
+                    Es el cuarto album de estudio del rapero estadounidense Eminem, fue el album mas vendido ese año en todo el mundo con 22 millones de copias.
+                </p>
+            </details>
+        </div>
+
+        <div class="canciones">
+            <details>
+                <summary class="acor">
+                    Listado de canciones 
+                </summary>
+                <div class="listap">
+                    <ul class="lista-canciones editable" contenteditable="false">
+                        <li><i class="fa-solid fa-music"></i> Without Me</li>
+                        <li><i class="fa-solid fa-music"></i> Cleanin' out my closet</li>
+                        <li><i class="fa-solid fa-music"></i> Superman</li>
+                        <li><i class="fa-solid fa-music"></i> Sing for the Moment</li>
+                        <li><i class="fa-solid fa-music"></i> Business</li>
+                    </ul>
+                </div>
+                
+            </details>
+        </div>
+        
+        <div class="comentarios">
+            <details>
+                <summary class="acor">Reseñas y comentarios</summary>
+                <div class="comentario">
+                    <div class="avatar">
+                        <img src="{%static 'images/fotosusuario/lauragomez.jpg' %}" alt="Avatar de laura">
+                        
+                    </div>
+                    <div class="contenido-comentario">
+                        <a href = "{% url "lauraG" %}">laura Gomez</a>
+                        <p class="texto">¡Excelente calidad y servicio!</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+</section>
+<script>
+    function activarEdicion() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = true;
+            campo.style.border = "1px dashed #ccc";
+        });
+    }
+    
+    function guardarCambios() {
+        const campos = document.querySelectorAll(".editable");
+        campos.forEach(campo => {
+            campo.contentEditable = false;
+            campo.style.border = "none";
+        });
+    
+        // Mensaje de confirmación
+        const mensaje = document.createElement("p");
+        mensaje.textContent = "✅";
+        mensaje.classList.add("mensaje-guardado");
+        mensaje.style.color = "green";
+        mensaje.style.fontWeight = "bold";
+    
+        const contenedor = document.querySelector(".guardar-global");
+        contenedor.appendChild(mensaje);
+    
+        setTimeout(() => mensaje.remove(), 3000);
+    }
+    
+    // 👇 ESTA ES LA FUNCIÓN QUE MARCA COMO NO DISPONIBLE
+    function marcarNoDisponible() {
+        const contenedor = document.getElementById("mensajeNoDisponible");
+    
+        contenedor.textContent = "📦 Marcado como no disponible";
+        contenedor.style.color = "red";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+
+    function Disponible() {
+        const contenedor = document.getElementById("Disponible");
+    
+        contenedor.textContent = "✅ Disponible";
+        contenedor.style.color = "green";
+        contenedor.style.fontWeight = "bold";
+        contenedor.style.marginTop = "10px";
+    
+        setTimeout(() => contenedor.textContent = "", 3000);
+    }
+</script>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}

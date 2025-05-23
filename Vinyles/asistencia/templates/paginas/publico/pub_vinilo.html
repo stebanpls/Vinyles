@@ -1,0 +1,137 @@
+{% extends "plantillas/plantilla_publico.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/publico/style_vinilo.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - {{ album_data.title }} {% endblock titulo %}
+
+{% block contenido %}
+<section class="vinilo-section">
+    <div class="cuadro">
+        <div class="contenedor">
+            <img src="{% static album_data.image %}" alt="Carátula de {{ album_data.title }}" >
+        </div>
+        
+        <div class="info">
+            <div class="titulo">
+                <p>{{ album_data.title }}</p>
+            </div>
+            <div class="precio-valor">
+                <span class="etiqueta-precio">Precio: </span>
+                <span class="dato-precio">${{ album_data.price|floatformat:"0" }}</span>
+            </div>
+
+            <!-- Botones -->
+            <div class="botones-acciones">
+                <!-- Botón de comprar: redirige al checkout (con el mismo parámetro 'album' si quieres) -->
+                <a href="{% url 'com_carrito' %}?album={{ request.GET.album }}&checkout=true" class="btn-comprar">
+                    Comprar
+                </a>
+
+                
+                <a href="{% url 'com_carrito' %}?album={{ request.GET.album }}" class="btn-agregar-carrito">
+                    Añadir al carrito
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detalles">
+        <div class="album">
+            <details>
+                <summary class="acor">Información del álbum</summary>
+                <p>
+                    <span class="etiqueta">Género:</span>
+                    <span class="dato">{{ album_data.genre }}</span>
+                </p>
+                <p>
+                    <span class="etiqueta">Lanzamiento:</span>
+                    <span class="dato">{{ album_data.release_date }}</span>
+                </p>
+                <p>
+                    <span class="etiqueta">Sello discográfico:</span>
+                    <span class="dato">{{ album_data.label }}</span>
+                </p>
+                <p>
+                    <span class="etiqueta">Productor(es):</span>
+                    <span class="dato">{{ album_data.producers }}</span>
+                </p>
+            </details>
+        </div>
+    
+        <div class="artista">
+            <details>
+                <summary class="acor">Información del artista</summary>
+                <p>{{ album_data.artist_info }}</p>
+            </details>
+        </div>
+
+        <div class="canciones">
+            <details>
+                <summary class="acor">Listado de canciones</summary>
+                <div class="listap">
+                    <ul class="lista-canciones">
+                        {% for song in album_data.song_list %}
+                            <li><i class="fa-solid fa-music"></i> {{ song }}</li>
+                        {% empty %}
+                            <li>Por definir...</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </details>
+        </div>
+        
+        <div class="comentarios">
+            <details>
+                <summary class="acor">Reseñas y comentarios</summary>
+                
+                {% for comment in album_data.comments %}
+                <div class="comentario">
+                    <div class="avatar">
+                        {# Imagen de avatar estática o podrías tenerla en tu data #}
+                        <img src="{% static 'images/avatarsito.jpg' %}" alt="Avatar de {{ comment.username }}">
+                    </div>
+                    <div class="contenido-comentario">
+                        <span class="nombre">{{ comment.username }}</span>
+                        <p class="texto">{{ comment.comment }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No hay comentarios para este álbum.</p>
+                {% endfor %}
+            </details>
+        </div>
+    </div>
+</section>
+
+<script>
+    function addToCart(albumName, artistName, price, imageURL) {
+    // Recuperar o iniciar el array de productos en localStorage
+    let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    // Crear objeto con datos del álbum
+    const albumData = {
+        albumName: albumName,
+        artistName: artistName,
+        price: price,
+        imageURL: imageURL
+    };
+
+    // Agregar al array
+    cartProducts.push(albumData);
+
+    // Guardar de nuevo en localStorage
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+
+    // Redirigir al carrito
+    window.location.href = "{% url 'com_carrito' %}";
+    }
+</script>
+{% endblock contenido %}
+
+{% block pie %}
+    
+{% endblock pie %}

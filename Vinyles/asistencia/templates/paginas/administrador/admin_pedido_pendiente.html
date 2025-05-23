@@ -1,0 +1,163 @@
+{% extends "plantillas/plantilla_administrador.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/paginas/administrador/style_pedido_pendiente.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock extra_css %}
+
+{% block titulo %} Vinyles - Álbumes {% endblock titulo %}
+
+{% block contenido %} 
+<section>
+    <div class="textos">
+        <h1 class="bienvenida">Pedidos pendientes</h1>
+        <p class="bien">🚚 No dejes que se acumulen. Gestiona los pedidos pendientes y asegúrate de que cada cliente reciba lo suyo a tiempo.</p>
+    </div>
+    <div class="decoracion">
+
+        <!-- 🔍 Buscador -->
+        <input type="text" id="buscador" placeholder="🔎 Buscar cliente..." class="busqueda" style="width: 100%; padding: 10px; font-size: 16px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc;">
+
+        <!-- PEDIDOS -->
+        <div id="lista-pedidos">
+
+            <!-- Pedido 1 -->
+            <div class="pedido">
+                <details>
+                    <summary>Ana González</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Calle 73 A # 53b</p>
+                        <p><strong>Correo electrónico:</strong> anitauwu67@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3202361123</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 1</p>
+                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 2 -->
+            <div class="pedido">
+                <details>
+                    <summary>Juan Pérez</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Carrera 50 # 12-34</p>
+                        <p><strong>Correo electrónico:</strong> juanperez88@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3107894561</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 3</p>
+                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 3 -->
+            <div class="pedido">
+                <details>
+                    <summary>Camila Ríos</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Av. Siempre Viva #742</p>
+                        <p><strong>Correo electrónico:</strong> camiri23@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3001122334</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 2</p>
+                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 4 -->
+            <div class="pedido">
+                <details>
+                    <summary>Esteban Martínez</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Calle 10 # 25-89</p>
+                        <p><strong>Correo electrónico:</strong> estemtz@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3209988776</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 5</p>
+                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pedido 5 -->
+            <div class="pedido">
+                <details>
+                    <summary>Lucía Torres</summary>
+                    <div class="info">
+                        <div class="compra"><a href="{% url 'admin_adPro' %}">
+                            <img src="{% static 'images/the beatles-abbey road.jpg' %}" alt="Abbey Road - The Beatles">
+                            <div><p style="color:white">The Beatles - Abbey Road</p></a></div>
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <p><strong>Dirección de domicilio:</strong> Calle 15 # 8-90</p>
+                        <p><strong>Correo electrónico:</strong> luciatorres90@gmail.com</p>
+                        <p><strong>Número de teléfono:</strong> 3104455667</p>
+                        <p><strong>País:</strong> Colombia</p>
+                        <p><strong>Número de compras realizadas:</strong> 4</p>
+                        <button class="boton-realizado" onclick="eliminarPedido(this)">Pedido Realizado</button>
+                    </div>
+                </details>
+            </div>
+
+        </div> <!-- FIN lista-pedidos -->
+
+        <!-- JS eliminar pedido -->
+        <script>
+            function eliminarPedido(boton) {
+                const pedido = boton.closest('.pedido');
+                pedido.style.opacity = '0';
+                setTimeout(() => {
+                    pedido.remove();
+                }, 300);
+            }
+        </script>
+
+        <!-- 🔍 JS buscador por nombre -->
+        <script>
+            const buscador = document.getElementById('buscador');
+            const pedidos = document.querySelectorAll('#lista-pedidos .pedido');
+
+            buscador.addEventListener('keyup', () => {
+                const texto = buscador.value.toLowerCase();
+                pedidos.forEach(pedido => {
+                    const nombre = pedido.querySelector('summary').textContent.toLowerCase();
+                    pedido.style.display = nombre.includes(texto) ? 'block' : 'none';
+                });
+            });
+        </script>
+
+    </div>
+</section>
+{% endblock contenido %}
+
+{% block pie %}
+
+{% endblock pie %}
